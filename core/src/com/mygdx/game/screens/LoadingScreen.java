@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.mygdx.game.Eurobusiness;
 
 public class LoadingScreen implements Screen {
@@ -18,16 +19,25 @@ public class LoadingScreen implements Screen {
     private int widthPadding;
     private int loadingBarHeight;
 
-
     private float progress;
+    private Skin skin;
 
     public LoadingScreen(final Eurobusiness game) {
         this.game = game;
         this.shapeRenderer = new ShapeRenderer();
         this.progress = 0f;
+        this.skin = new Skin();
 
         setWidthPadding();
         setLoadingBarHeight();
+    }
+
+    private void loadResourcesToSkin() {
+        skin.addRegions(game.assets.get("ui/uiatlas.atlas", TextureAtlas.class));
+        skin.add("default-font", game.fontHolder.getFont("black28"));
+        skin.add("white-font", game.fontHolder.getFont("white28"));
+        skin.add("big-font", game.fontHolder.getFont("black42"));
+        skin.load(Gdx.files.internal("ui/uiskin.json"));
     }
 
     @Override
@@ -38,7 +48,7 @@ public class LoadingScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(1f, 1f, 1f, 1f);
+        Gdx.gl.glClearColor(Color.GRAY.r, Color.GRAY.g, Color.GRAY.b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         update(delta);
@@ -58,6 +68,8 @@ public class LoadingScreen implements Screen {
     public void update(float delta) {
         progress = MathUtils.lerp(progress, game.assets.getProgress(), .1f);
         if (game.assets.update() && progress >= game.assets.getProgress() - 0.001f) {
+            loadResourcesToSkin();
+            game.setSkin(skin);
             game.setScreen(game.splashScreen);
         }
     }
