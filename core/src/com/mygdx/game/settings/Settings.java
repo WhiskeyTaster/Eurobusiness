@@ -2,10 +2,12 @@ package com.mygdx.game.settings;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
+import com.mygdx.game.screens.Resolution;
 
 import java.awt.*;
 
 public class Settings {
+
     private final Preferences preferences;
 
     private float screenWidth;
@@ -13,6 +15,7 @@ public class Settings {
 
     private boolean windowedMode;
     private int fps;
+    private Resolution resolution;
 
     public Settings() {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -25,6 +28,7 @@ public class Settings {
 
         this.windowedMode = preferences.getBoolean("windowedMode", true);
         this.fps = preferences.getInteger("fps", 60);
+        this.resolution = Resolution.getResolution(this.screenWidth, this.screenHeight);
 
         update();
     }
@@ -44,6 +48,10 @@ public class Settings {
 
     public int getFps() {
         return fps;
+    }
+
+    public Resolution getResolution() {
+        return resolution;
     }
 
     public float getScreenHeight() {
@@ -81,10 +89,22 @@ public class Settings {
 
     private void applyWindowMode() {
         if (isWindowedMode()) {
+            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+            int width = (int) screenSize.getWidth();
+            int height = (int) screenSize.getHeight();
+
+            setScreenWidth(width);
+            setScreenHeight(height);
+            changeResolution();
+
             Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
         }
         else {
-            Gdx.graphics.setWindowedMode(800, 600);
+            Gdx.graphics.setWindowedMode((int) screenWidth, (int) screenHeight);
         }
+    }
+
+    private void changeResolution() {
+        resolution = Resolution.getResolution(screenWidth, screenHeight);
     }
 }

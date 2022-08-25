@@ -11,8 +11,13 @@ import com.badlogic.gdx.math.MathUtils;
 import com.mygdx.game.Eurobusiness;
 
 public class LoadingScreen implements Screen {
+
     private final Eurobusiness game;
     private final ShapeRenderer shapeRenderer;
+
+    private int widthPadding;
+    private int loadingBarHeight;
+
 
     private float progress;
 
@@ -20,12 +25,9 @@ public class LoadingScreen implements Screen {
         this.game = game;
         this.shapeRenderer = new ShapeRenderer();
         this.progress = 0f;
-    }
 
-    private void queueAssets() {
-        game.assets.load("images/logo/splash.png", Texture.class);
-        game.assets.load("ui/uiatlas.atlas", TextureAtlas.class);
-        // game.assets.load("textures/colors.atlas", TextureAtlas.class);
+        setWidthPadding();
+        setLoadingBarHeight();
     }
 
     @Override
@@ -43,10 +45,12 @@ public class LoadingScreen implements Screen {
 
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         shapeRenderer.setColor(Color.BLACK);
-        shapeRenderer.rect(32, game.camera.viewportHeight / 2 - 8, game.camera.viewportWidth - 64, 16);
+        shapeRenderer.rect(widthPadding, game.camera.viewportHeight / 2 - loadingBarHeight / 2f,
+                game.camera.viewportWidth - 2 * widthPadding, loadingBarHeight);
 
         shapeRenderer.setColor(Color.BLUE);
-        shapeRenderer.rect(32, game.camera.viewportHeight / 2 - 8, progress * (game.camera.viewportWidth - 64), 16);
+        shapeRenderer.rect(widthPadding, game.camera.viewportHeight / 2 - loadingBarHeight / 2f,
+                progress * (game.camera.viewportWidth - 2 * widthPadding), loadingBarHeight);
 
         shapeRenderer.end();
     }
@@ -54,7 +58,7 @@ public class LoadingScreen implements Screen {
     public void update(float delta) {
         progress = MathUtils.lerp(progress, game.assets.getProgress(), .1f);
         if (game.assets.update() && progress >= game.assets.getProgress() - 0.001f) {
-            // game.setScreen(game.splashScreen);
+            game.setScreen(game.splashScreen);
         }
     }
 
@@ -81,5 +85,31 @@ public class LoadingScreen implements Screen {
     @Override
     public void dispose() {
 
+    }
+
+    private void setWidthPadding() {
+        if ((int) game.settings.getScreenWidth() == 1920) {
+            int WIDTH_PADDING_1920 = 32;
+            this.widthPadding = WIDTH_PADDING_1920;
+        } else {
+            int WIDTH_PADDING_800 = 13;
+            this.widthPadding = WIDTH_PADDING_800;
+        }
+    }
+
+    private void setLoadingBarHeight() {
+        if ((int) game.settings.getScreenHeight() == 1080) {
+            int LOADING_BAR_HEIGHT_1080 = 24;
+            this.loadingBarHeight = LOADING_BAR_HEIGHT_1080;
+        } else {
+            int LOADING_BAR_HEIGHT_600 = 13;
+            this.loadingBarHeight = LOADING_BAR_HEIGHT_600;
+        }
+    }
+
+    private void queueAssets() {
+        game.assets.load("images/logo/splash.png", Texture.class);
+        game.assets.load("ui/uiatlas.atlas", TextureAtlas.class);
+        // game.assets.load("textures/colors.atlas", TextureAtlas.class);
     }
 }
