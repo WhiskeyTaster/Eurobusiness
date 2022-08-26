@@ -2,45 +2,15 @@ package com.mygdx.game.ui;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.mygdx.game.Eurobusiness;
 
-public class MainMenuUI implements UI{
-    private final Eurobusiness game;
-    private final ShapeRenderer shapeRenderer;
-    private final SpriteBatch batch;
-    private final Skin skin;
-    private final Stage stage;
-
+public class MainMenuUI extends BaseUI{
 
     public MainMenuUI(final Eurobusiness game) {
-        this.game = game;
-        this.shapeRenderer = new ShapeRenderer();
-        this.batch = new SpriteBatch();
-        this.skin = game.skin;
-        this.stage = new Stage();
-    }
-
-    @Override
-    public Batch getBatch() {
-        return batch;
-    }
-
-    @Override
-    public Stage getStage() {
-        return stage;
-    }
-
-    @Override
-    public ShapeRenderer getShapeRenderer() {
-        return shapeRenderer;
+        super(game);
     }
 
     @Override
@@ -60,29 +30,29 @@ public class MainMenuUI implements UI{
 
     @Override
     public void initializeButtons() {
-        final int screenWidth = (int) game.settings.getScreenWidth();
-        final int screenHeight = (int) game.settings.getScreenHeight();
+        final int screenWidth = (int) getGame().settings.getScreenWidth();
+        final int screenHeight = (int) getGame().settings.getScreenHeight();
         final float buttonWidth = screenWidth * 0.15f;
         final float buttonHeight = screenHeight * 0.10f;
         final float marginY = screenHeight * 0.2f;
         float buttonPadding = screenHeight * 0.15f;
 
-        TextButton playGameButton = new TextButton("Nowa gra", skin, "default");
+        TextButton playGameButton = new TextButton("Nowa gra", getSkin(), "default");
         playGameButton.setSize(buttonWidth, buttonHeight);
         playGameButton.setPosition(screenWidth / 2f - playGameButton.getWidth() / 2f,
                 screenHeight - marginY);
 
-        TextButton scoreButton = new TextButton("Wyniki", skin, "default");
+        TextButton scoreButton = new TextButton("Wyniki", getSkin(), "default");
         scoreButton.setSize(buttonWidth, buttonHeight);
         scoreButton.setPosition(playGameButton.getX(),
                 playGameButton.getY() - buttonPadding);
 
-        TextButton rulesButton = new TextButton("Zasady gry", skin, "default");
+        TextButton rulesButton = new TextButton("Zasady gry", getSkin(), "default");
         rulesButton.setSize(buttonWidth, buttonHeight);
         rulesButton.setPosition(scoreButton.getX(),
                 scoreButton.getY() - buttonPadding);
 
-        TextButton exitButton = new TextButton("Wyjdz", skin, "default");
+        TextButton exitButton = new TextButton("Wyjdz", getSkin(), "default");
         exitButton.setSize(buttonWidth, buttonHeight);
         exitButton.setPosition(rulesButton.getX(),
                 rulesButton.getY() - buttonPadding);
@@ -91,6 +61,7 @@ public class MainMenuUI implements UI{
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 // game.setScreen(game.setUpScreen);
+                // TODO: set new game screen
             }
         });
 
@@ -103,10 +74,10 @@ public class MainMenuUI implements UI{
 
         playGameButton.getLabel().setColor(Color.WHITE);
 
-        stage.addActor(playGameButton);
-        stage.addActor(scoreButton);
-        stage.addActor(rulesButton);
-        stage.addActor(exitButton);
+        getStage().addActor(playGameButton);
+        getStage().addActor(scoreButton);
+        getStage().addActor(rulesButton);
+        getStage().addActor(exitButton);
     }
 
     @Override
