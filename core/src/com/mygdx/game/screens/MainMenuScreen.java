@@ -6,21 +6,21 @@ import com.mygdx.game.ui.MainMenuUI;
 
 public class MainMenuScreen implements Screen {
     private final Eurobusiness game;
-    private final MainMenuUI mainMenuUI;
+    private MainMenuUI mainMenuUI;
 
     public MainMenuScreen(final Eurobusiness game) {
         this.game = game;
-        this.mainMenuUI = new MainMenuUI();
     }
 
     @Override
     public void show() {
-
+        this.mainMenuUI = new MainMenuUI(game);
+        mainMenuUI.initializeStage();
     }
 
     @Override
     public void render(float delta) {
-
+        mainMenuUI.draw(delta);
     }
 
     @Override

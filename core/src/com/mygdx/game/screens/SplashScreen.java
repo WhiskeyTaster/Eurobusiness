@@ -30,12 +30,7 @@ public class SplashScreen implements Screen {
 
         Image splashImage = createImage();
 
-        Runnable runAction = new Runnable() {
-            @Override
-            public void run() {
-                // game.setScreen(game.mainMenuScreen);
-            }
-        };
+        Runnable runAction = () -> game.setScreen(game.mainMenuScreen);
 
         splashImage.addAction(sequence(alpha(0f), scaleTo(.1f, .1f),
                 parallel(fadeIn(2f, Interpolation.pow2),

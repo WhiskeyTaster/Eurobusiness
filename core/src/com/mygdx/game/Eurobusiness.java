@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.mygdx.game.screens.LoadingScreen;
+import com.mygdx.game.screens.MainMenuScreen;
 import com.mygdx.game.screens.SplashScreen;
 import com.mygdx.game.settings.Settings;
 
@@ -19,6 +20,8 @@ public class Eurobusiness extends Game {
 
 	public LoadingScreen loadingScreen;
 	public SplashScreen splashScreen;
+	public MainMenuScreen mainMenuScreen;
+
 	public Skin skin;
 	public FontHolder fontHolder;
 	
@@ -36,6 +39,7 @@ public class Eurobusiness extends Game {
 
 		this.loadingScreen = new LoadingScreen(this);
 		this.splashScreen = new SplashScreen(this);
+		this.mainMenuScreen = new MainMenuScreen(this);
 
 		this.setScreen(loadingScreen);
 	}
@@ -51,7 +55,7 @@ public class Eurobusiness extends Game {
 	
 	@Override
 	public void dispose () {
-
+		skin.dispose();
 	}
 
 	private void createFonts() {
