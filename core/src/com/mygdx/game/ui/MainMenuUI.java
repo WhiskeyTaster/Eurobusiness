@@ -60,8 +60,7 @@ public class MainMenuUI extends BaseUI{
         playGameButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                // game.setScreen(game.setUpScreen);
-                // TODO: set new game screen
+                getGame().setScreen(getGame().gameSetupScreen);
             }
         });
 

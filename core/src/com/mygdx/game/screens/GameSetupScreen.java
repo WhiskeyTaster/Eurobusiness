@@ -21,7 +21,7 @@ public class GameSetupScreen implements Screen {
 
     @Override
     public void render(float delta) {
-
+        gameSetupUI.draw(delta);
     }
 
     @Override
