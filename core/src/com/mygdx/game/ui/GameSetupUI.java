@@ -78,16 +78,16 @@ public class GameSetupUI extends BaseUI{
         final float widthPadding = screenWidth * 0.15f;
         final float heightPadding = screenWidth * 0.1f;
 
-        float buttonSizeX = screenWidth * 0.15f;
-        float buttonSizeY = screenHeight * 0.10f;
+        final float buttonWidth = screenWidth * 0.15f;
+        final float buttonHeight = screenHeight * 0.10f;
 
         TextButton backButton = new TextButton("Wroc", getSkin(), "default");
-        backButton.setSize(buttonSizeX, buttonSizeY);
+        backButton.setSize(buttonWidth, buttonHeight);
         backButton.setPosition(widthPadding, heightPadding);
 
         TextButton nextButton = new TextButton("Dalej", getSkin(), "default");
-        nextButton.setSize(buttonSizeX, buttonSizeY);
-        nextButton.setPosition(screenWidth - widthPadding - buttonSizeX, heightPadding);
+        nextButton.setSize(buttonWidth, buttonHeight);
+        nextButton.setPosition(screenWidth - widthPadding - buttonWidth, heightPadding);
 
         backButton.addListener(new ClickListener() {
             @Override
@@ -104,14 +104,14 @@ public class GameSetupUI extends BaseUI{
             }
         });
 
-        int buttonWidth = 40;
-        int buttonHeight = 40;
+        final float lesserButtonWidth = 40f;
+        final float lesserButtonHeight = 40f;
 
         Button addHumanPlayerButton = new Button(getSkin(), "add-button");
-        addHumanPlayerButton.setSize(buttonWidth, buttonHeight);
+        addHumanPlayerButton.setSize(lesserButtonWidth, lesserButtonHeight);
         addHumanPlayerButton.setPosition(textFieldHashMap.get("humanPlayers").getX() +
                         textFieldHashMap.get("humanPlayers").getWidth() + widthPadding / 8,
-                textFieldHashMap.get("humanPlayers").getY() + buttonHeight / 4f);
+                textFieldHashMap.get("humanPlayers").getY() + lesserButtonHeight / 4f);
         addHumanPlayerButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -125,9 +125,9 @@ public class GameSetupUI extends BaseUI{
         });
 
         Button removeHumanPlayerButton = new Button(getSkin(), "remove-button");
-        removeHumanPlayerButton.setSize(buttonWidth, buttonHeight);
-        removeHumanPlayerButton.setPosition(textFieldHashMap.get("humanPlayers").getX() - widthPadding / 8 - buttonWidth,
-                textFieldHashMap.get("humanPlayers").getY() + buttonHeight / 4f);
+        removeHumanPlayerButton.setSize(lesserButtonWidth, lesserButtonHeight);
+        removeHumanPlayerButton.setPosition(textFieldHashMap.get("humanPlayers").getX() - widthPadding / 8 - lesserButtonWidth,
+                textFieldHashMap.get("humanPlayers").getY() + lesserButtonHeight / 4f);
         removeHumanPlayerButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -141,10 +141,10 @@ public class GameSetupUI extends BaseUI{
         });
 
         Button addAiPlayerButton = new Button(getSkin(), "add-button");
-        addAiPlayerButton.setSize(buttonWidth, buttonHeight);
+        addAiPlayerButton.setSize(lesserButtonWidth, lesserButtonHeight);
         addAiPlayerButton.setPosition(textFieldHashMap.get("aiPlayers").getX() +
                         textFieldHashMap.get("aiPlayers").getWidth() + widthPadding / 8,
-                textFieldHashMap.get("aiPlayers").getY() + buttonHeight / 4f);
+                textFieldHashMap.get("aiPlayers").getY() + lesserButtonHeight / 4f);
         addAiPlayerButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -159,9 +159,9 @@ public class GameSetupUI extends BaseUI{
         });
 
         Button removeAiPlayerButton = new Button(getSkin(), "remove-button");
-        removeAiPlayerButton.setSize(buttonWidth, buttonHeight);
-        removeAiPlayerButton.setPosition(textFieldHashMap.get("aiPlayers").getX() - widthPadding / 8 - buttonWidth,
-                textFieldHashMap.get("aiPlayers").getY() + buttonHeight / 4f);
+        removeAiPlayerButton.setSize(lesserButtonWidth, lesserButtonHeight);
+        removeAiPlayerButton.setPosition(textFieldHashMap.get("aiPlayers").getX() - widthPadding / 8 - lesserButtonWidth,
+                textFieldHashMap.get("aiPlayers").getY() + lesserButtonHeight / 4f);
         removeAiPlayerButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
