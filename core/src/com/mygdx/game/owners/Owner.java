@@ -13,9 +13,9 @@ public abstract class Owner {
 
     private final int id;
 
-    public Owner(int money, String name) {
-        this.money = money;
+    public Owner(String name, int money) {
         this.name = name;
+        this.money = money;
         this.fields = new ArrayList<>();
         this.id = Owner.next_id;
 

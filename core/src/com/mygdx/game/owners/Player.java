@@ -1,8 +1,21 @@
 package com.mygdx.game.owners;
 
-public class Player extends Owner{
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.mygdx.game.board.Field;
 
-    public Player(int money, String name) {
-        super(money, name);
+import java.util.ArrayList;
+
+public class Player extends Owner{
+    private final Color color;
+    private final ArrayList<Field> ownedFields;
+    private final Sprite pawn;
+
+
+    public Player(String name, int money, Color color, Sprite pawn) {
+        super(name, money);
+        this.color = new Color(color);
+        this.ownedFields = new ArrayList<>();
+        this.pawn = new Sprite(pawn);
     }
 }

@@ -1,35 +1,26 @@
 package com.mygdx.game.screens;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.Eurobusiness;
 import com.mygdx.game.Pair;
-import com.mygdx.game.board.Field;
-import com.mygdx.game.owners.Owner;
 import com.mygdx.game.ui.CreatePlayerUI;
 
-import java.util.ArrayList;
 
 public class CreatePlayerScreen implements Screen {
     private final Eurobusiness game;
     private final Pair<Integer, Integer> players;
 
-    private ArrayList<Owner> owners;
-
     private CreatePlayerUI createPlayerUI;
 
-    public CreatePlayerScreen(final Eurobusiness game, final Pair<Integer, Integer> players) {
+    public CreatePlayerScreen(final Eurobusiness game) {
         this.game = game;
-        this.players = players;
+        this.players = game.players;
     }
 
     @Override
     public void show() {
-        this.createPlayerUI = new CreatePlayerUI(game);
+        this.createPlayerUI = new CreatePlayerUI(game, players);
+        this.createPlayerUI.initializeStage();
     }
 
     @Override

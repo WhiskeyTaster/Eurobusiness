@@ -99,8 +99,9 @@ public class GameSetupUI extends BaseUI{
         nextButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                // app.setScreen(new CreatePlayerScreen(app, new Pair<Integer, Integer>(humanPlayersNum, aiPlayersNum)));
-                // TODO: setting new screen
+                getGame().players.setFirst(humanPlayersNum);
+                getGame().players.setSecond(aiPlayersNum);
+                getGame().setScreen(getGame().createPlayerScreen);
             }
         });
 

@@ -11,6 +11,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.mygdx.game.Eurobusiness;
 import org.jetbrains.annotations.NotNull;
 
+// TODO: add protected final int resolution and padding
+
 public abstract class BaseUI{
     private final Eurobusiness game;
     private final ShapeRenderer shapeRenderer;
