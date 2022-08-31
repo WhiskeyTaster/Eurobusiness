@@ -11,8 +11,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.mygdx.game.Eurobusiness;
 import org.jetbrains.annotations.NotNull;
 
-// TODO: add protected final int resolution and padding
-
 public abstract class BaseUI{
     private final Eurobusiness game;
     private final ShapeRenderer shapeRenderer;
@@ -20,12 +18,24 @@ public abstract class BaseUI{
     private final Skin skin;
     private final Stage stage;
 
+    protected final int screenWidth;
+    protected final int screenHeight;
+
+    protected final float widthPadding;
+    protected final float heightPadding;
+
     public BaseUI(final @NotNull Eurobusiness game) {
         this.game = game;
         this.shapeRenderer = new ShapeRenderer();
         this.batch = new SpriteBatch();
         this.skin = game.skin;
         this.stage = new Stage();
+
+        this.screenWidth = (int) game.settings.getScreenWidth();
+        this.screenHeight = (int) game.settings.getScreenHeight();
+
+        this.widthPadding = this.screenWidth * 0.1f;
+        this.heightPadding = this.screenHeight * 0.1f;
     }
 
     public Batch getBatch() {

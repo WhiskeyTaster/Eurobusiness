@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -18,7 +19,6 @@ import com.mygdx.game.creators.OwnerCreator;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-// TODO: add color to frames after choosing element like pawn or colorbox
 // TODO: resolution
 
 public class CreatePlayerUI extends BaseUI{
@@ -35,7 +35,7 @@ public class CreatePlayerUI extends BaseUI{
     private Sprite boxSpriteSelected;
     private Sprite pawnSpriteSelected;
 
-    private Vector3 touchPos;
+    private final Vector3 touchPos;
 
     private final HashMap<String, Label> labelHashMap;
     private final HashMap<String, TextField> textFieldHashMap;
@@ -62,6 +62,8 @@ public class CreatePlayerUI extends BaseUI{
         this.touchPos = new Vector3();
         this.labelHashMap = new HashMap<>();
         this.textFieldHashMap = new HashMap<>();
+
+        ownerCreator.createBank(players.getFirst() + players.getSecond());
     }
 
     @Override
@@ -72,6 +74,8 @@ public class CreatePlayerUI extends BaseUI{
             touchPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
             getGame().camera.unproject(touchPos);
             for (Sprite sprite : boxes) {
+                if (usedBoxes.contains(sprite, true))
+                    continue;
                 float xStart = sprite.getX();
                 float xEnd = xStart + sprite.getWidth();
                 float yStart = sprite.getY();
@@ -84,6 +88,8 @@ public class CreatePlayerUI extends BaseUI{
             }
 
             for (Sprite sprite : pawns) {
+                if (usedPawns.contains(sprite, true))
+                    continue;
                 float xStart = sprite.getX();
                 float xEnd = xStart + sprite.getWidth();
                 float yStart = sprite.getY();
@@ -117,7 +123,13 @@ public class CreatePlayerUI extends BaseUI{
 
     @Override
     void drawShapeRenderer() {
-
+        getShapeRenderer().begin(ShapeRenderer.ShapeType.Line);
+        getShapeRenderer().setColor(Color.RED);
+        getShapeRenderer().rect(boxSpriteSelected.getX(), boxSpriteSelected.getY(),
+                boxSpriteSelected.getWidth(), boxSpriteSelected.getHeight());
+        getShapeRenderer().rect(pawnSpriteSelected.getX(), pawnSpriteSelected.getY(),
+                pawnSpriteSelected.getWidth(), pawnSpriteSelected.getHeight());
+        getShapeRenderer().end();
     }
 
     @Override
@@ -132,12 +144,6 @@ public class CreatePlayerUI extends BaseUI{
 
     @Override
     void initializeLabels() {
-        int screenWidth = (int) getGame().settings.getScreenWidth();
-        int screenHeight = (int) getGame().settings.getScreenHeight();
-
-        final float widthPadding = screenWidth * 0.15f;
-        final float heightPadding = screenWidth * 0.1f;
-
         Label playerName = new Label("Nazwa gracza:", getSkin(), "big-label");
         playerName.setPosition(widthPadding, screenHeight - heightPadding);
         labelHashMap.put("playerName", playerName);
@@ -156,14 +162,8 @@ public class CreatePlayerUI extends BaseUI{
 
     @Override
     void initializeButtons() {
-        int screenWidth = (int) getGame().settings.getScreenWidth();
-        int screenHeight = (int) getGame().settings.getScreenHeight();
-
         float buttonWidth = screenWidth * 0.15f;
         float buttonHeight = screenHeight * 0.10f;
-
-        final float widthPadding = screenWidth * 0.15f;
-        final float heightPadding = screenWidth * 0.1f;
 
         TextButton nextButton = new TextButton("Next", getSkin(), "default");
         nextButton.setSize(buttonWidth, buttonHeight);
@@ -208,15 +208,8 @@ public class CreatePlayerUI extends BaseUI{
 
     @Override
     void initializeTextFields() {
-        int screenWidth = (int) getGame().settings.getScreenWidth();
-        int screenHeight = (int) getGame().settings.getScreenHeight();
-
-        final float widthPadding = screenWidth * 0.15f;
-        final float heightPadding = screenWidth * 0.1f;
-
         final int MAX_LENGTH = 12;
         int width = 300;
-        int height = 60;
 
         TextField playerName = new TextField("", getSkin(), "default");
         playerName.setSize(width, labelHashMap.get("playerName").getHeight());
@@ -239,12 +232,6 @@ public class CreatePlayerUI extends BaseUI{
     }
 
     private void initializeSpriteBoxes() {
-        int screenWidth = (int) getGame().settings.getScreenWidth();
-        int screenHeight = (int) getGame().settings.getScreenHeight();
-
-        final float widthPadding = screenWidth * 0.15f;
-        final float heightPadding = screenWidth * 0.1f;
-
         Array<Sprite> spriteBoxes = boxesAtlas.createSprites();
         for (Sprite sprite : spriteBoxes)
             boxes.add(sprite);
@@ -262,7 +249,6 @@ public class CreatePlayerUI extends BaseUI{
         colors.add(Color.ORANGE);
         colors.add(Color.RED);
 
-
         float width = 60;
         float height = 60;
         int i = 0;
@@ -277,15 +263,10 @@ public class CreatePlayerUI extends BaseUI{
     }
 
     private void initializeSpritePawns() {
-        int screenWidth = (int) getGame().settings.getScreenWidth();
-        int screenHeight = (int) getGame().settings.getScreenHeight();
-
-        final float widthPadding = screenWidth * 0.15f;
-        final float heightPadding = screenWidth * 0.1f;
-
         Array<Sprite> pawnSprites = pawnsAtlas.createSprites();
         for (Sprite sprite : pawnSprites)
             pawns.add(sprite);
+
         int spriteSizeX = 64;
         int spriteSizeY = 64;
 

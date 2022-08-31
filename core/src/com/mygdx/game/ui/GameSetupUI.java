@@ -49,12 +49,6 @@ public class GameSetupUI extends BaseUI{
 
     @Override
     void initializeLabels() {
-        final int screenWidth = (int) getGame().settings.getScreenHeight();
-        final int screenHeight = (int) getGame().settings.getScreenHeight();
-
-        final float widthPadding = screenWidth * 0.1f;
-        final float heightPadding = screenHeight * 0.1f;
-
         Label enterName = new Label("Gracze", getSkin(), "big-label");
         enterName.setPosition(widthPadding, screenHeight - heightPadding);
         getStage().addActor(enterName);
@@ -73,13 +67,8 @@ public class GameSetupUI extends BaseUI{
 
     @Override
     void initializeButtons() {
-        final int screenWidth = (int) getGame().settings.getScreenWidth();
-        final int screenHeight = (int) getGame().settings.getScreenHeight();
-        final float widthPadding = screenWidth * 0.15f;
-        final float heightPadding = screenWidth * 0.1f;
-
         final float buttonWidth = screenWidth * 0.15f;
-        final float buttonHeight = screenHeight * 0.10f;
+        final float buttonHeight = screenHeight * 0.1f;
 
         TextButton backButton = new TextButton("Wroc", getSkin(), "default");
         backButton.setSize(buttonWidth, buttonHeight);
@@ -192,12 +181,6 @@ public class GameSetupUI extends BaseUI{
 
     @Override
     void initializeTextFields() {
-        final int screenWidth = (int) getGame().settings.getScreenWidth();
-        final int screenHeight = (int) getGame().settings.getScreenHeight();
-
-        final float widthPadding = screenWidth * 0.1f;
-        final float heightPadding = screenHeight * 0.1f;
-
         final int width = 60;
         final int height = 60;
 

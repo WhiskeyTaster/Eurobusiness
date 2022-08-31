@@ -30,8 +30,6 @@ public class MainMenuUI extends BaseUI{
 
     @Override
     public void initializeButtons() {
-        final int screenWidth = (int) getGame().settings.getScreenWidth();
-        final int screenHeight = (int) getGame().settings.getScreenHeight();
         final float buttonWidth = screenWidth * 0.15f;
         final float buttonHeight = screenHeight * 0.10f;
         final float marginY = screenHeight * 0.2f;
