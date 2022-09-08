@@ -15,4 +15,11 @@ public enum Resolution {
         else
             return RESOLUTION_800_600;
     }
+
+    public int intResolution() {
+        if (this == RESOLUTION_1920_1080)
+            return 1024;
+        else
+            return 800;
+    }
 }

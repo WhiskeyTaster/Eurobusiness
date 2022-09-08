@@ -2,12 +2,15 @@ package com.mygdx.game.properties;
 
 // TODO: depends on railways
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
+
 public abstract class Property {
     private String name;
     private int price;
     private int fieldNumber;
     private int mortgage;
     private boolean mortgaged;
+    private Sprite propertySprite;
 
     public Property() {
     }
@@ -23,7 +26,7 @@ public abstract class Property {
     @Override
     public String toString() {
         return "[name: " + name + ", price: " + price + ", fieldNumber: " +
-                fieldNumber + ", mortgage: " + mortgage + " ]";
+                fieldNumber + ", mortgage: " + mortgage + "]";
     }
 
     public String getName() {
@@ -52,4 +55,7 @@ public abstract class Property {
 
     public abstract int getCharge();
 
+    public void setPropertySprite(Sprite sprite) {
+        this.propertySprite = sprite;
+    }
 }
