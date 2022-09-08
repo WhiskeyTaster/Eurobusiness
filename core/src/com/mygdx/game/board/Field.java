@@ -45,7 +45,30 @@ public class Field {
         fieldSprite.setPosition(x, y);
     }
 
+    public Sprite getPropertySprite() {
+        return property.getPropertySprite();
+    }
+
     public Owner getOwner() {
         return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
+    }
+
+    public int getPrice() {
+        return property.getPrice();
+    }
+
+    public boolean haveProperty() {
+        return property != null;
+    }
+
+    public Property getProperty() {
+        if (haveProperty())
+            return property;
+        else
+            return null;
     }
 }

@@ -17,6 +17,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Board {
+    public static final int START_FIELD_NUMBER = 1;
+    public static final int PRISON_FIELD_NUMBER = 11;
+    public static final int PARKING_FIELD_NUMBER = 21;
+    public static final int POLICE_FIELD_NUMBER = 31;
+
     private final Array<Field> fields;
     private final Center center;
 
@@ -111,6 +116,13 @@ public class Board {
         }
         center.setPosition(fields.get(LEFT_BOTTOM_CORNER).getX() + fields.get(LEFT_BOTTOM_CORNER).getWidth(),
                 fields.get(LEFT_BOTTOM_CORNER).getY() + fields.get(LEFT_BOTTOM_CORNER).getHeight());
+    }
+
+    public Field getField(int fieldNumber) {
+        for (Field field : fields)
+            if (field.getFieldNumber() == fieldNumber)
+                return field;
+        return null;
     }
 
 }

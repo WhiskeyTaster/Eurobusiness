@@ -45,6 +45,10 @@ public abstract class Owner {
         fields.add(field);
     }
 
+    public void removeField(Field field) {
+        fields.remove(field);
+    }
+
     public void addMoney(int money) {
         this.money += money;
     }
@@ -57,5 +61,7 @@ public abstract class Owner {
     public void removeMoney(int money) {
         this.money -= money;
     }
-
+    public boolean haveMoney(int amount) {
+        return money - amount >= 0;
+    }
 }

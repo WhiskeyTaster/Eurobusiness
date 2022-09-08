@@ -197,9 +197,8 @@ public class CreatePlayerUI extends BaseUI{
                 if (players.getFirst() == ownerCreator.getHumansNumber()) {
                     // TODO: create AI (after AI will be implemented)
                     System.out.println("CREATED");
-                    // getGame().players = playerArrayList;
-                    // getGame().setScreen(new MainGameScreen(getGame()));
-                    // TODO: change screen to game
+                    getGame().owners = ownerCreator.getOwners();
+                    getGame().setScreen(getGame().gameScreen);
                 }
             }
         });

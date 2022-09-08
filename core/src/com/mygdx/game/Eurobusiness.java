@@ -5,8 +5,11 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.mygdx.game.owners.Owner;
 import com.mygdx.game.screens.*;
 import com.mygdx.game.settings.Settings;
+
+import java.util.ArrayList;
 
 
 public class Eurobusiness extends Game {
@@ -21,11 +24,13 @@ public class Eurobusiness extends Game {
 	public MainMenuScreen mainMenuScreen;
 	public GameSetupScreen gameSetupScreen;
 	public CreatePlayerScreen createPlayerScreen;
+	public GameScreen gameScreen;
 
 	public Skin skin;
 	public FontHolder fontHolder;
 
 	public Pair<Integer, Integer> players;
+	public ArrayList<Owner> owners;
 	
 	@Override
 	public void create () {
@@ -46,6 +51,7 @@ public class Eurobusiness extends Game {
 		this.mainMenuScreen = new MainMenuScreen(this);
 		this.gameSetupScreen = new GameSetupScreen(this);
 		this.createPlayerScreen = new CreatePlayerScreen(this);
+		this.gameScreen = new GameScreen(this);
 
 		this.setScreen(loadingScreen);
 	}

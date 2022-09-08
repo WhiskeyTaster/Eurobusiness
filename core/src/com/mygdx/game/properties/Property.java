@@ -58,4 +58,8 @@ public abstract class Property {
     public void setPropertySprite(Sprite sprite) {
         this.propertySprite = sprite;
     }
+
+    public Sprite getPropertySprite() {
+        return propertySprite;
+    }
 }

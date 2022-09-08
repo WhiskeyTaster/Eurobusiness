@@ -41,4 +41,8 @@ public class OwnerCreator {
     public int getHumansNumber() {
         return humansNumber;
     }
+
+    public ArrayList<Owner> getOwners() {
+        return owners;
+    }
 }
