@@ -5,7 +5,9 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.mygdx.game.owners.Bank;
 import com.mygdx.game.owners.Owner;
+import com.mygdx.game.owners.Player;
 import com.mygdx.game.screens.*;
 import com.mygdx.game.settings.Settings;
 
@@ -13,6 +15,9 @@ import java.util.ArrayList;
 
 
 public class Eurobusiness extends Game {
+
+	static int currentPlayer = 0;
+	static int tour = 0;
 
 	public AssetManager assets;
 	public OrthographicCamera camera;
@@ -29,8 +34,9 @@ public class Eurobusiness extends Game {
 	public Skin skin;
 	public FontHolder fontHolder;
 
-	public Pair<Integer, Integer> players;
-	public ArrayList<Owner> owners;
+	public Pair<Integer, Integer> numberOfPlayers;
+	public Bank bank;
+	public ArrayList<Player> players;
 	
 	@Override
 	public void create () {
@@ -44,7 +50,8 @@ public class Eurobusiness extends Game {
 		this.fontHolder = new FontHolder();
 		createFonts();
 
-		this.players = new Pair<>();
+		this.numberOfPlayers = new Pair<>();
+		this.players = new ArrayList<>();
 
 		this.loadingScreen = new LoadingScreen(this);
 		this.splashScreen = new SplashScreen(this);
@@ -74,5 +81,19 @@ public class Eurobusiness extends Game {
 		fontHolder.addFont(28, Color.BLACK, "black28");
 		fontHolder.addFont(28, Color.WHITE, "white28");
 		fontHolder.addFont(42, Color.BLACK, "black42");
+	}
+
+	public Player getNextPlayer() {
+		currentPlayer++;
+		if (currentPlayer >= players.size()) {
+			currentPlayer = 0;
+			tour++;
+		}
+
+		return players.get(currentPlayer);
+	}
+
+	public Player getCurrentPlayer() {
+		return players.get(currentPlayer);
 	}
 }

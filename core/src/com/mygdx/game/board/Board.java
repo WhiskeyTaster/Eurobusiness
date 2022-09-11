@@ -27,7 +27,7 @@ public class Board {
 
     public Board(Resolution resolution, Pair<Float, Float> position, Owner owner) {
         this.fields = new Array<>();
-        this.center = new Center(new Texture(Gdx.files.internal("textures/fields/" + resolution + "/center.jpg")));
+        this.center = new Center(new Texture(Gdx.files.internal("textures/fields/1024/center.jpg")));
         createFields(resolution, owner);
         setPosition(resolution, position);
     }
@@ -35,7 +35,7 @@ public class Board {
     private void createFields(Resolution resolution, Owner owner) {
         HashMap<Integer, Property> propertyHashMap = importProperties();
         final int NUMBER_OF_FIELDS = 40;
-        String path = "textures/fields/" + resolution + "/";
+        String path = "textures/fields/1024/";
         for (int i = 0; i < NUMBER_OF_FIELDS; i++) {
             String fileName = "field" + (i + 1) + ".jpg";
             Texture texture = new Texture(Gdx.files.internal(path + fileName));
@@ -125,4 +125,11 @@ public class Board {
         return null;
     }
 
+    public Array<Field> getFields() {
+        return fields;
+    }
+
+    public Center getCenter() {
+        return center;
+    }
 }

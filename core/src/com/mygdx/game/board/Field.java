@@ -71,4 +71,8 @@ public class Field {
         else
             return null;
     }
+
+    public Sprite getFieldSprite() {
+        return fieldSprite;
+    }
 }

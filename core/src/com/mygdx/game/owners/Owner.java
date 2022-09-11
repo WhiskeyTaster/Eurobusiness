@@ -37,6 +37,10 @@ public abstract class Owner {
         return id;
     }
 
+    public int getMoney() {
+        return money;
+    }
+
     public String getName() {
         return name;
     }

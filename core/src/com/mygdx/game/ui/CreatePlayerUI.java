@@ -15,6 +15,9 @@ import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.Eurobusiness;
 import com.mygdx.game.Pair;
 import com.mygdx.game.creators.OwnerCreator;
+import com.mygdx.game.owners.Bank;
+import com.mygdx.game.owners.Owner;
+import com.mygdx.game.owners.Player;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -195,9 +198,13 @@ public class CreatePlayerUI extends BaseUI{
                 pawnSpriteSelected = new Sprite();
 
                 if (players.getFirst() == ownerCreator.getHumansNumber()) {
-                    // TODO: create AI (after AI will be implemented)
+                    // TODO: create AI (after AI will be already implemented)
                     System.out.println("CREATED");
-                    getGame().owners = ownerCreator.getOwners();
+                    getGame().bank = (Bank) ownerCreator.getOwners().get(0);
+                    for (Owner player : ownerCreator.getOwners()) {
+                        if (player instanceof Player)
+                            getGame().players.add((Player) player);
+                    }
                     getGame().setScreen(getGame().gameScreen);
                 }
             }

@@ -19,6 +19,7 @@ public class Player extends Owner{
         this.color = new Color(color);
         this.ownedFields = new ArrayList<>();
         this.pawn = new Sprite(pawn);
+        this.pawn.setAlpha(1f);
         this.currentFieldNumber = Board.START_FIELD_NUMBER;
     }
 
@@ -36,5 +37,9 @@ public class Player extends Owner{
 
     public void move(float x, float y) {
         pawn.setPosition(pawn.getX() + x, pawn.getY() + y);
+    }
+
+    public Color getColor() {
+        return color;
     }
 }

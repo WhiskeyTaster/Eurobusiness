@@ -88,8 +88,8 @@ public class GameSetupUI extends BaseUI{
         nextButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                getGame().players.setFirst(humanPlayersNum);
-                getGame().players.setSecond(aiPlayersNum);
+                getGame().numberOfPlayers.setFirst(humanPlayersNum);
+                getGame().numberOfPlayers.setSecond(aiPlayersNum);
                 getGame().setScreen(getGame().createPlayerScreen);
             }
         });

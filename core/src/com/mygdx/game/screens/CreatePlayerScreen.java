@@ -8,18 +8,18 @@ import com.mygdx.game.ui.CreatePlayerUI;
 
 public class CreatePlayerScreen implements Screen {
     private final Eurobusiness game;
-    private final Pair<Integer, Integer> players;
+    private final Pair<Integer, Integer> numberOfPlayers;
 
     private CreatePlayerUI createPlayerUI;
 
     public CreatePlayerScreen(final Eurobusiness game) {
         this.game = game;
-        this.players = game.players;
+        this.numberOfPlayers = game.numberOfPlayers;
     }
 
     @Override
     public void show() {
-        this.createPlayerUI = new CreatePlayerUI(game, players);
+        this.createPlayerUI = new CreatePlayerUI(game, numberOfPlayers);
         this.createPlayerUI.initializeStage();
     }
 

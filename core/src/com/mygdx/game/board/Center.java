@@ -1,6 +1,7 @@
 package com.mygdx.game.board;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 public class Center {
@@ -16,5 +17,11 @@ public class Center {
 
     public void setSize(float width, float height) {
         center.setSize(width, height);
+    }
+
+    public void draw(Batch batch) {
+        batch.begin();
+        center.draw(batch);
+        batch.end();
     }
 }
