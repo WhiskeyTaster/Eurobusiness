@@ -1,13 +1,13 @@
 package com.mygdx.game.managers;
 
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.mygdx.game.Eurobusiness;
 import com.mygdx.game.board.Board;
 import com.mygdx.game.board.Field;
 import com.mygdx.game.logic.BuyController;
+import com.mygdx.game.owners.Player;
 import com.mygdx.game.ui.AuctionUI;
-import com.mygdx.game.ui.BaseUI;
 import com.mygdx.game.ui.BuyUI;
+import com.mygdx.game.ui.FieldBoughtUI;
 
 import java.util.Objects;
 
@@ -19,7 +19,7 @@ public class AuctionManager {
 
     private AuctionUI auctionUI;
     private BuyUI buyUI;
-    private BaseUI currentUI;
+    private final FieldBoughtUI fieldBoughtUI;
 
     public AuctionManager(Eurobusiness game, Board board, BuyController buyController, Field field) {
         this.game = Objects.requireNonNull(game, "game is null");
@@ -32,6 +32,7 @@ public class AuctionManager {
         this.buyController.setFieldAndPlayer(field, game.getCurrentPlayer());
 
         this.auctionUI = null;
+        this.fieldBoughtUI = new FieldBoughtUI(game, buyController);
     }
 
     public void process(float delta) {
@@ -39,7 +40,6 @@ public class AuctionManager {
         if (buyUI == null) {
             buyUI = new BuyUI(game, field, buyController);
             buyUI.initializeStage();
-            currentUI = buyUI;
         }
         if (!buyController.isBuyActionFinished()) {
             buyUI.draw(delta);
@@ -51,6 +51,15 @@ public class AuctionManager {
             }
             auctionUI.draw(delta);
         }
-
+        if (field.getOwner() instanceof Player && !fieldBoughtUI.isClosed()) {
+            if (!fieldBoughtUI.haveNewOwner()) {
+                if (buyController.isAuctionFinished())
+                    fieldBoughtUI.setNewOwner(buyController.getCurrentAuctioneer());
+                else
+                    fieldBoughtUI.setNewOwner(game.getCurrentPlayer());
+                fieldBoughtUI.initializeStage();
+            }
+            fieldBoughtUI.draw(delta);
+        }
     }
 }
