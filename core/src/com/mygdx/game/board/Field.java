@@ -66,13 +66,23 @@ public class Field {
     }
 
     public Property getProperty() {
-        if (haveProperty())
-            return property;
-        else
-            return null;
+        return haveProperty() ? property : null;
     }
 
     public Sprite getFieldSprite() {
         return fieldSprite;
+    }
+
+    public boolean isMortgaged() {
+        return haveProperty() && property.isMortgaged();
+    }
+
+    public void setMortgaged(boolean mortgaged) {
+        if (haveProperty())
+            property.setMortgaged(mortgaged);
+    }
+
+    public int getMortgage() {
+        return haveProperty() ? property.getMortgage() : 0;
     }
 }

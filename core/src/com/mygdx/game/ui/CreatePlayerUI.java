@@ -75,7 +75,7 @@ public class CreatePlayerUI extends BaseUI{
 
         if (Gdx.input.isTouched()) {
             touchPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
-            getGame().camera.unproject(touchPos);
+            game.camera.unproject(touchPos);
             for (Sprite sprite : boxes) {
                 if (usedBoxes.contains(sprite, true))
                     continue;
@@ -126,41 +126,41 @@ public class CreatePlayerUI extends BaseUI{
 
     @Override
     void drawShapeRenderer() {
-        getShapeRenderer().begin(ShapeRenderer.ShapeType.Line);
-        getShapeRenderer().setColor(Color.RED);
-        getShapeRenderer().rect(boxSpriteSelected.getX(), boxSpriteSelected.getY(),
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
+        shapeRenderer.setColor(Color.RED);
+        shapeRenderer.rect(boxSpriteSelected.getX(), boxSpriteSelected.getY(),
                 boxSpriteSelected.getWidth(), boxSpriteSelected.getHeight());
-        getShapeRenderer().rect(pawnSpriteSelected.getX(), pawnSpriteSelected.getY(),
+        shapeRenderer.rect(pawnSpriteSelected.getX(), pawnSpriteSelected.getY(),
                 pawnSpriteSelected.getWidth(), pawnSpriteSelected.getHeight());
-        getShapeRenderer().end();
+        shapeRenderer.end();
     }
 
     @Override
     void drawBatch() {
-        getBatch().begin();
+        batch.begin();
         for (Sprite sprite : boxes)
-            sprite.draw(getBatch());
+            sprite.draw(batch);
         for (Sprite sprite : pawns)
-            sprite.draw(getBatch());
-        getBatch().end();
+            sprite.draw(batch);
+        batch.end();
     }
 
     @Override
     void initializeLabels() {
-        Label playerName = new Label("Nazwa gracza:", getSkin(), "big-label");
+        Label playerName = new Label("Nazwa gracza:", skin, "big-label");
         playerName.setPosition(widthPadding, screenHeight - heightPadding);
         labelHashMap.put("playerName", playerName);
-        getStage().addActor(playerName);
+        stage.addActor(playerName);
 
-        Label playerColor = new Label("Kolor gracza:", getSkin(), "big-label");
+        Label playerColor = new Label("Kolor gracza:", skin, "big-label");
         playerColor.setPosition(widthPadding, playerName.getY() - heightPadding);
         labelHashMap.put("playerColor", playerColor);
-        getStage().addActor(playerColor);
+        stage.addActor(playerColor);
 
-        Label choosePawn = new Label("Wybierz pionek:", getSkin(), "big-label");
+        Label choosePawn = new Label("Wybierz pionek:", skin, "big-label");
         choosePawn.setPosition(widthPadding, playerColor.getY() - heightPadding);
         labelHashMap.put("choosePawn", choosePawn);
-        getStage().addActor(choosePawn);
+        stage.addActor(choosePawn);
     }
 
     @Override
@@ -168,7 +168,7 @@ public class CreatePlayerUI extends BaseUI{
         float buttonWidth = screenWidth * 0.15f;
         float buttonHeight = screenHeight * 0.10f;
 
-        TextButton nextButton = new TextButton("Next", getSkin(), "default");
+        TextButton nextButton = new TextButton("Next", skin, "default");
         nextButton.setSize(buttonWidth, buttonHeight);
         nextButton.setPosition(screenWidth - buttonWidth - widthPadding, heightPadding);
         nextButton.addListener(new ClickListener() {
@@ -200,16 +200,16 @@ public class CreatePlayerUI extends BaseUI{
                 if (players.getFirst() == ownerCreator.getHumansNumber()) {
                     // TODO: create AI (after AI will be already implemented)
                     System.out.println("CREATED");
-                    getGame().bank = (Bank) ownerCreator.getOwners().get(0);
+                    game.bank = (Bank) ownerCreator.getOwners().get(0);
                     for (Owner player : ownerCreator.getOwners()) {
                         if (player instanceof Player)
-                            getGame().players.add((Player) player);
+                            game.players.add((Player) player);
                     }
-                    getGame().setScreen(getGame().gameScreen);
+                    game.setScreen(game.gameScreen);
                 }
             }
         });
-        getStage().addActor(nextButton);
+        stage.addActor(nextButton);
     }
 
     @Override
@@ -217,7 +217,7 @@ public class CreatePlayerUI extends BaseUI{
         final int MAX_LENGTH = 12;
         int width = 300;
 
-        TextField playerName = new TextField("", getSkin(), "default");
+        TextField playerName = new TextField("", skin, "default");
         playerName.setSize(width, labelHashMap.get("playerName").getHeight());
         playerName.setPosition(labelHashMap.get("playerName").getX() +
                         labelHashMap.get("playerName").getWidth() + widthPadding / 8,
@@ -225,7 +225,7 @@ public class CreatePlayerUI extends BaseUI{
 
         playerName.setMaxLength(MAX_LENGTH);
         textFieldHashMap.put("playerName", playerName);
-        getStage().addActor(playerName);
+        stage.addActor(playerName);
     }
 
     @Override

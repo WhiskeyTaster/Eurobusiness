@@ -35,22 +35,22 @@ public class MainMenuUI extends BaseUI{
         final float marginY = screenHeight * 0.2f;
         float buttonPadding = screenHeight * 0.15f;
 
-        TextButton playGameButton = new TextButton("Nowa gra", getSkin(), "default");
+        TextButton playGameButton = new TextButton("Nowa gra", skin, "default");
         playGameButton.setSize(buttonWidth, buttonHeight);
         playGameButton.setPosition(screenWidth / 2f - playGameButton.getWidth() / 2f,
                 screenHeight - marginY);
 
-        TextButton scoreButton = new TextButton("Wyniki", getSkin(), "default");
+        TextButton scoreButton = new TextButton("Wyniki", skin, "default");
         scoreButton.setSize(buttonWidth, buttonHeight);
         scoreButton.setPosition(playGameButton.getX(),
                 playGameButton.getY() - buttonPadding);
 
-        TextButton rulesButton = new TextButton("Zasady gry", getSkin(), "default");
+        TextButton rulesButton = new TextButton("Zasady gry", skin, "default");
         rulesButton.setSize(buttonWidth, buttonHeight);
         rulesButton.setPosition(scoreButton.getX(),
                 scoreButton.getY() - buttonPadding);
 
-        TextButton exitButton = new TextButton("Wyjdz", getSkin(), "default");
+        TextButton exitButton = new TextButton("Wyjdz", skin, "default");
         exitButton.setSize(buttonWidth, buttonHeight);
         exitButton.setPosition(rulesButton.getX(),
                 rulesButton.getY() - buttonPadding);
@@ -58,7 +58,7 @@ public class MainMenuUI extends BaseUI{
         playGameButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                getGame().setScreen(getGame().gameSetupScreen);
+                game.setScreen(game.gameSetupScreen);
             }
         });
 
@@ -71,10 +71,10 @@ public class MainMenuUI extends BaseUI{
 
         playGameButton.getLabel().setColor(Color.WHITE);
 
-        getStage().addActor(playGameButton);
-        getStage().addActor(scoreButton);
-        getStage().addActor(rulesButton);
-        getStage().addActor(exitButton);
+        stage.addActor(playGameButton);
+        stage.addActor(scoreButton);
+        stage.addActor(rulesButton);
+        stage.addActor(exitButton);
     }
 
     @Override

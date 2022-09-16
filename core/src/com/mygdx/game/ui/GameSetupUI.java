@@ -49,19 +49,19 @@ public class GameSetupUI extends BaseUI{
 
     @Override
     void initializeLabels() {
-        Label enterName = new Label("Gracze", getSkin(), "big-label");
+        Label enterName = new Label("Gracze", skin, "big-label");
         enterName.setPosition(widthPadding, screenHeight - heightPadding);
-        getStage().addActor(enterName);
+        stage.addActor(enterName);
         labelHashMap.put("enterName", enterName);
 
-        Label humanPlayers = new Label("Gracze ludzcy: ", getSkin(), "big-label");
+        Label humanPlayers = new Label("Gracze ludzcy: ", skin, "big-label");
         humanPlayers.setPosition(widthPadding, enterName.getY() - heightPadding);
-        getStage().addActor(humanPlayers);
+        stage.addActor(humanPlayers);
         labelHashMap.put("humanPlayers", humanPlayers);
 
-        Label aiPlayers = new Label("Gracze AI: ", getSkin(), "big-label");
+        Label aiPlayers = new Label("Gracze AI: ", skin, "big-label");
         aiPlayers.setPosition(widthPadding, humanPlayers.getY() - heightPadding);
-        getStage().addActor(aiPlayers);
+        stage.addActor(aiPlayers);
         labelHashMap.put("aiPlayers", aiPlayers);
     }
 
@@ -70,34 +70,34 @@ public class GameSetupUI extends BaseUI{
         final float buttonWidth = screenWidth * 0.15f;
         final float buttonHeight = screenHeight * 0.1f;
 
-        TextButton backButton = new TextButton("Wroc", getSkin(), "default");
+        TextButton backButton = new TextButton("Wroc", skin, "default");
         backButton.setSize(buttonWidth, buttonHeight);
         backButton.setPosition(widthPadding, heightPadding);
 
-        TextButton nextButton = new TextButton("Dalej", getSkin(), "default");
+        TextButton nextButton = new TextButton("Dalej", skin, "default");
         nextButton.setSize(buttonWidth, buttonHeight);
         nextButton.setPosition(screenWidth - widthPadding - buttonWidth, heightPadding);
 
         backButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                getGame().setScreen(getGame().mainMenuScreen);
+                game.setScreen(game.mainMenuScreen);
             }
         });
 
         nextButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                getGame().numberOfPlayers.setFirst(humanPlayersNum);
-                getGame().numberOfPlayers.setSecond(aiPlayersNum);
-                getGame().setScreen(getGame().createPlayerScreen);
+                game.numberOfPlayers.setFirst(humanPlayersNum);
+                game.numberOfPlayers.setSecond(aiPlayersNum);
+                game.setScreen(game.createPlayerScreen);
             }
         });
 
         final float lesserButtonWidth = 40f;
         final float lesserButtonHeight = 40f;
 
-        Button addHumanPlayerButton = new Button(getSkin(), "add-button");
+        Button addHumanPlayerButton = new Button(skin, "add-button");
         addHumanPlayerButton.setSize(lesserButtonWidth, lesserButtonHeight);
         addHumanPlayerButton.setPosition(textFieldHashMap.get("humanPlayers").getX() +
                         textFieldHashMap.get("humanPlayers").getWidth() + widthPadding / 8,
@@ -114,7 +114,7 @@ public class GameSetupUI extends BaseUI{
             }
         });
 
-        Button removeHumanPlayerButton = new Button(getSkin(), "remove-button");
+        Button removeHumanPlayerButton = new Button(skin, "remove-button");
         removeHumanPlayerButton.setSize(lesserButtonWidth, lesserButtonHeight);
         removeHumanPlayerButton.setPosition(textFieldHashMap.get("humanPlayers").getX() - widthPadding / 8 - lesserButtonWidth,
                 textFieldHashMap.get("humanPlayers").getY() + lesserButtonHeight / 4f);
@@ -130,7 +130,7 @@ public class GameSetupUI extends BaseUI{
             }
         });
 
-        Button addAiPlayerButton = new Button(getSkin(), "add-button");
+        Button addAiPlayerButton = new Button(skin, "add-button");
         addAiPlayerButton.setSize(lesserButtonWidth, lesserButtonHeight);
         addAiPlayerButton.setPosition(textFieldHashMap.get("aiPlayers").getX() +
                         textFieldHashMap.get("aiPlayers").getWidth() + widthPadding / 8,
@@ -148,7 +148,7 @@ public class GameSetupUI extends BaseUI{
             }
         });
 
-        Button removeAiPlayerButton = new Button(getSkin(), "remove-button");
+        Button removeAiPlayerButton = new Button(skin, "remove-button");
         removeAiPlayerButton.setSize(lesserButtonWidth, lesserButtonHeight);
         removeAiPlayerButton.setPosition(textFieldHashMap.get("aiPlayers").getX() - widthPadding / 8 - lesserButtonWidth,
                 textFieldHashMap.get("aiPlayers").getY() + lesserButtonHeight / 4f);
@@ -164,12 +164,12 @@ public class GameSetupUI extends BaseUI{
             }
         });
 
-        getStage().addActor(backButton);
-        getStage().addActor(nextButton);
-        getStage().addActor(addHumanPlayerButton);
-        getStage().addActor(removeHumanPlayerButton);
-        getStage().addActor(addAiPlayerButton);
-        getStage().addActor(removeAiPlayerButton);
+        stage.addActor(backButton);
+        stage.addActor(nextButton);
+        stage.addActor(addHumanPlayerButton);
+        stage.addActor(removeHumanPlayerButton);
+        stage.addActor(addAiPlayerButton);
+        stage.addActor(removeAiPlayerButton);
     }
 
     @Override
@@ -184,7 +184,7 @@ public class GameSetupUI extends BaseUI{
         final int width = 60;
         final int height = 60;
 
-        TextField humanPlayers = new TextField("2", getSkin(), "default");
+        TextField humanPlayers = new TextField("2", skin, "default");
         humanPlayers.setSize(width, height);
         humanPlayers.setAlignment(Align.center);
         humanPlayers.setDisabled(true);
@@ -193,14 +193,14 @@ public class GameSetupUI extends BaseUI{
                 labelHashMap.get("humanPlayers").getY());
         textFieldHashMap.put("humanPlayers", humanPlayers);
 
-        TextField aiPlayers = new TextField("0", getSkin(), "default");
+        TextField aiPlayers = new TextField("0", skin, "default");
         aiPlayers.setSize(width, height);
         aiPlayers.setAlignment(Align.center);
         aiPlayers.setDisabled(true);
         aiPlayers.setPosition(humanPlayers.getX(), humanPlayers.getY() - heightPadding);
         textFieldHashMap.put("aiPlayers", aiPlayers);
 
-        getStage().addActor(humanPlayers);
-        getStage().addActor(aiPlayers);
+        stage.addActor(humanPlayers);
+        stage.addActor(aiPlayers);
     }
 }

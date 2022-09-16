@@ -15,10 +15,7 @@ import com.mygdx.game.Eurobusiness;
 import com.mygdx.game.Pair;
 import com.mygdx.game.board.Board;
 import com.mygdx.game.board.Field;
-import com.mygdx.game.logic.EndTurnController;
-import com.mygdx.game.logic.FieldController;
-import com.mygdx.game.logic.MoveController;
-import com.mygdx.game.logic.RollController;
+import com.mygdx.game.logic.*;
 import com.mygdx.game.owners.Player;
 import org.jetbrains.annotations.NotNull;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -67,11 +64,8 @@ public class MainGameUI extends BaseUI {
 
     @Override
     public void draw(float delta) {
+        updateInfo();
         super.draw(delta);
-        getBatch().begin();
-        colorBox.draw(getBatch());
-        getBatch().end();
-        board.getCenter().draw(getBatch());
 
         drawFieldsAndPlayers();
         colorFields();
@@ -85,7 +79,7 @@ public class MainGameUI extends BaseUI {
     @Override
     public void initializeStage() {
         super.initializeStage();
-        setPlayerInfoStage(currentPlayer);
+        setColorbox();
     }
 
     private void colorFields() {
@@ -104,12 +98,12 @@ public class MainGameUI extends BaseUI {
     }
 
     private void drawFieldsAndPlayers() {
-        getBatch().begin();
+        batch.begin();
         for (Field field : board.getFields())
-            field.getFieldSprite().draw(getBatch());
-        for (Player player : getGame().players)
-            player.getPawn().draw(getBatch());
-        getBatch().end();
+            field.getFieldSprite().draw(batch);
+        for (Player player : game.players)
+            player.getPawn().draw(batch);
+        batch.end();
     }
 
     private void drawBankBox() {
@@ -171,12 +165,12 @@ public class MainGameUI extends BaseUI {
         colorBox = colorBoxes.get(playerColorIndex);
     }
 
-    private void setPlayerInfoStage(Player currentPlayer) {
+    private void setColorbox() {
         colorBox.setSize(40, 40);
         colorBox.setPosition(1110 + stringLabelHashMap.get("playerColor").getWidth() + 20, 760);
     }
 
-    private void updateStage() {
+    private void updateInfo() {
         Label playerNameLabel = stringLabelHashMap.get("playerName");
         playerNameLabel.setText("Gracz: " + currentPlayer.getName());
 
@@ -184,7 +178,7 @@ public class MainGameUI extends BaseUI {
         playerMoneyLabel.setText("Saldo: " + currentPlayer.getMoney());
 
         Label bankMoneyLabel = stringLabelHashMap.get("bankMoney");
-        bankMoneyLabel.setText("Saldo: " + getGame().bank.getMoney());
+        bankMoneyLabel.setText("Saldo: " + game.bank.getMoney());
     }
 
     @Override
@@ -194,57 +188,60 @@ public class MainGameUI extends BaseUI {
 
     @Override
     void drawBatch() {
-
+        batch.begin();
+        colorBox.draw(batch);
+        batch.end();
+        board.getCenter().draw(batch);
     }
 
     @Override
     void initializeLabels() {
-        Label infoLabel = new Label("Informacje o graczu:", getSkin(), "big-label");
+        Label infoLabel = new Label("Informacje o graczu:", skin, "big-label");
         infoLabel.setPosition(1140, 1000);
         stringLabelHashMap.put("infoLabel", infoLabel);
 
-        getStage().addActor(infoLabel);
+        stage.addActor(infoLabel);
 
-        Label playerNameLabel = new Label("Gracz:" + currentPlayer.getName(), getSkin(), "default");
+        Label playerNameLabel = new Label("Gracz:" + currentPlayer.getName(), skin, "default");
         playerNameLabel.setPosition(1110, 940);
         stringLabelHashMap.put("playerName", playerNameLabel);
 
-        getStage().addActor(playerNameLabel);
+        stage.addActor(playerNameLabel);
 
-        Label playerIdLabel = new Label("Id: " + currentPlayer.getId(), getSkin(), "default");
+        Label playerIdLabel = new Label("Id: " + currentPlayer.getId(), skin, "default");
         playerIdLabel.setPosition(1110, 880);
         stringLabelHashMap.put("playerId", playerIdLabel);
 
-        getStage().addActor(playerIdLabel);
+        stage.addActor(playerIdLabel);
 
-        Label playerMoneyLabel = new Label("Saldo:" + currentPlayer.getMoney(), getSkin(), "default");
+        Label playerMoneyLabel = new Label("Saldo:" + currentPlayer.getMoney(), skin, "default");
         playerMoneyLabel.setPosition(1110, 820);
         stringLabelHashMap.put("playerMoney", playerMoneyLabel);
 
-        getStage().addActor(playerMoneyLabel);
+        stage.addActor(playerMoneyLabel);
 
-        Label playerColorLabel = new Label("Kolor: ", getSkin(), "default");
+        Label playerColorLabel = new Label("Kolor: ", skin, "default");
         playerColorLabel.setPosition(1110, 760);
         stringLabelHashMap.put("playerColor", playerColorLabel);
 
-        getStage().addActor(playerColorLabel);
+        stage.addActor(playerColorLabel);
 
-        Label bankInfoLabel = new Label("Bank", getSkin(), "big-label");
+        Label bankInfoLabel = new Label("Bank", skin, "big-label");
 
         bankInfoLabel.setPosition(infoLabel.getX() + infoLabel.getWidth() + 175, infoLabel.getY());
         stringLabelHashMap.put("bankInfo", bankInfoLabel);
 
-        Label bankMoneyLabel = new Label("Saldo: " + getGame().bank.getMoney(), getSkin(), "default");
+        Label bankMoneyLabel = new Label("Saldo: " + game.bank.getMoney(), skin, "default");
         bankMoneyLabel.setPosition(bankInfoLabel.getX() - 25, bankInfoLabel.getY() - bankMoneyLabel.getHeight() - 20);
         stringLabelHashMap.put("bankMoney", bankMoneyLabel);
 
-        getStage().addActor(bankInfoLabel);
-        getStage().addActor(bankMoneyLabel);
+        stage.addActor(bankInfoLabel);
+        stage.addActor(bankMoneyLabel);
     }
 
     @Override
     void initializeButtons() {
-        final TextButton rollButton = new TextButton("Roll", getSkin(), "default");
+        final TextButton rollButton = new TextButton("Rzuc", skin, "default");
         rollButton.setSize(200, 100);
         rollButton.setPosition(1100, 620);
         rollButton.addListener(new ClickListener() {
@@ -264,10 +261,7 @@ public class MainGameUI extends BaseUI {
                     if (firstRoll.bothValuesEqual()) {
                         rolledValue += secondRoll.getFirst() + secondRoll.getSecond();
                     }
-                    /*
-                    System.out.println("FirstPair: " + firstRoll.getFirst() + ", " + firstRoll.getSecond() +
-                            ", secondPair: " + secondRoll.getFirst() + ", " + secondRoll.getSecond());
-                    */
+
                     rollController.setRolledValue(rolledValue);
                     rollController.setPlayerRolled(true);
                     rollController.setTwoPairsRolled(firstRoll.bothValuesEqual() && secondRoll.bothValuesEqual());
@@ -277,23 +271,21 @@ public class MainGameUI extends BaseUI {
             }
         });
 
-        TextButton endTurnButton = new TextButton("End turn", getSkin(), "default");
+        TextButton endTurnButton = new TextButton("Zakoncz ture", skin, "default");
         endTurnButton.setSize(200, 100);
         endTurnButton.setPosition(rollButton.getX() + rollButton.getWidth() + 20, rollButton.getY());
         endTurnButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if (endTurnController.isAllowFinishTour()) { // TO CHANGE
-                    // System.out.println(currentPlayer); // DEBUGGING HELPER
+                if (endTurnController.isAllowFinishTour()) {
                     endTurnController.setFinishTour(true);
-
                     endTurnController.informSubjects();
                 }
             }
         });
 
-        getStage().addActor(rollButton);
-        getStage().addActor(endTurnButton);
+        stage.addActor(rollButton);
+        stage.addActor(endTurnButton);
     }
 
     @Override

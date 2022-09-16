@@ -5,7 +5,6 @@ import com.mygdx.game.Eurobusiness;
 import com.mygdx.game.Pair;
 import com.mygdx.game.board.Board;
 import com.mygdx.game.board.Field;
-import com.mygdx.game.owners.Bank;
 import com.mygdx.game.owners.Player;
 import com.mygdx.game.ui.GameUI;
 
@@ -41,6 +40,10 @@ public class GameScreen implements Screen {
     @Override
     public void render(float delta) {
         gameUI.draw(delta);
+        if (gameUI.isTourFinished()) {
+            game.nextPlayer();
+            gameUI = new GameUI(game, board);
+        }
 
     }
 

@@ -42,4 +42,8 @@ public class Player extends Owner{
     public Color getColor() {
         return color;
     }
+
+    public ArrayList<Field> getOwnedFields() {
+        return ownedFields;
+    }
 }

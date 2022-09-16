@@ -95,7 +95,9 @@ public class BuyController implements LinkedSubject{
         return buyAction.isActionFinished();
     }
 
-    public boolean isAuctionActionFinished() {return auctionAction.isActionFinished(); }
+    public boolean isAuctionActionFinished() {
+        return auctionAction.isActionFinished();
+    }
 
     public void bidAuction(int amount) {
         if (amount > auctionAction.getCurrentPrice()) {
@@ -184,11 +186,6 @@ public class BuyController implements LinkedSubject{
                 check(currentPlayer, field);
             }
             informController();
-            /*
-            System.out.println("*** INFO BUY ACTION ***");
-            System.out.println("FieldToSell: " + fieldToSell + ", checked: " + checked + ", finished: " + finished +
-                    ", canBuyField: " + canBuyField);
-             */
         }
 
         @Override

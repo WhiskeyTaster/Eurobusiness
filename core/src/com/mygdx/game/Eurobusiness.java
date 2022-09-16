@@ -83,14 +83,12 @@ public class Eurobusiness extends Game {
 		fontHolder.addFont(42, Color.BLACK, "black42");
 	}
 
-	public Player getNextPlayer() {
+	public void nextPlayer() {
 		currentPlayer++;
 		if (currentPlayer >= players.size()) {
 			currentPlayer = 0;
 			tour++;
 		}
-
-		return players.get(currentPlayer);
 	}
 
 	public Player getCurrentPlayer() {

@@ -23,7 +23,9 @@ public class AuctionAction implements Action{
     private boolean actionFinished;
 
     public AuctionAction(ArrayList<Player> players, Player currentPlayer, Field field) {
-        this.players = players;
+        this.players = new ArrayList<>();
+        this.players.addAll(players);
+
         this.currentPlayer = currentPlayer;
         this.field = field;
 
@@ -110,9 +112,9 @@ public class AuctionAction implements Action{
 
     private void orderPlayers() {
         ArrayList<Player> orderedPlayers = new ArrayList<>();
-        for (int i = currentPlayer.getId(); i < players.size(); i++)
+        for (int i = currentPlayer.getId() - 1; i < players.size(); i++)
             orderedPlayers.add(players.get(i));
-        for (int i = 0; i < currentPlayer.getId(); i++)
+        for (int i = 0; i < currentPlayer.getId() - 1; i++)
             orderedPlayers.add(players.get(i));
         players = orderedPlayers;
     }
@@ -156,6 +158,7 @@ public class AuctionAction implements Action{
     }
 
     private void transferField() {
+        field.getOwner().removeField(field);
         field.setOwner(currentPlayer);
         currentPlayer.addField(field);
     }
