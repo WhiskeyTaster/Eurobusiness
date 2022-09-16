@@ -1,0 +1,424 @@
+[
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Greece",
+    "name": "Saloniki",
+    "price": 120,
+    "fieldNumber": 2,
+    "charge": {
+      "0": 10,
+      "1": 40,
+      "2": 120,
+      "3": 360,
+      "4": 640,
+      "5": 900
+    },
+    "buildingCost": 100,
+    "mortgage": 60
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Greece",
+    "name": "Ateny",
+    "price": 120,
+    "fieldNumber": 4,
+    "charge": {
+      "0": 10,
+      "1": 40,
+      "2": 120,
+      "3": 360,
+      "4": 640,
+      "5": 900
+    },
+    "buildingCost": 100,
+    "mortgage": 60
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Italy",
+    "name": "Neapol",
+    "price": 200,
+    "fieldNumber": 7,
+    "charge": {
+      "0": 15,
+      "1": 60,
+      "2": 180,
+      "3": 540,
+      "4": 800,
+      "5": 1100
+    },
+    "buildingCost": 100,
+    "mortgage": 100
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Italy",
+    "name": "Mediolan",
+    "price": 200,
+    "fieldNumber": 9,
+    "charge": {
+      "0": 15,
+      "1": 60,
+      "2": 180,
+      "3": 540,
+      "4": 800,
+      "5": 1100
+    },
+    "buildingCost": 100,
+    "mortgage": 100
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Italy",
+    "name": "Rzym",
+    "price": 240,
+    "fieldNumber": 10,
+    "charge": {
+      "0": 20,
+      "1": 80,
+      "2": 200,
+      "3": 600,
+      "4": 900,
+      "5": 1200
+    },
+    "buildingCost": 100,
+    "mortgage": 120
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Spain",
+    "name": "Barcelona",
+    "price": 280,
+    "fieldNumber": 12,
+    "charge": {
+      "0": 20,
+      "1": 100,
+      "2": 300,
+      "3": 900,
+      "4": 1250,
+      "5": 1500
+    },
+    "buildingCost": 200,
+    "mortgage": 140
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Spain",
+    "name": "Sewilla",
+    "price": 280,
+    "fieldNumber": 14,
+    "charge": {
+      "0": 20,
+      "1": 100,
+      "2": 300,
+      "3": 900,
+      "4": 1250,
+      "5": 1500
+    },
+    "buildingCost": 200,
+    "mortgage": 140
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Spain",
+    "name": "Madryt",
+    "price": 320,
+    "fieldNumber": 15,
+    "charge": {
+      "0": 25,
+      "1": 120,
+      "2": 360,
+      "3": 1000,
+      "4": 1400,
+      "5": 1800
+    },
+    "buildingCost": 200,
+    "mortgage": 160
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "England",
+    "name": "Liverpool",
+    "price": 360,
+    "fieldNumber": 17,
+    "charge": {
+      "0": 30,
+      "1": 140,
+      "2": 400,
+      "3": 1100,
+      "4": 1500,
+      "5": 1900
+    },
+    "buildingCost": 200,
+    "mortgage": 180
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "England",
+    "name": "Glasgow",
+    "price": 360,
+    "fieldNumber": 19,
+    "charge": {
+      "0": 30,
+      "1": 140,
+      "2": 400,
+      "3": 1100,
+      "4": 1500,
+      "5": 1900
+    },
+    "buildingCost": 200,
+    "mortgage": 180
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "England",
+    "name": "Londyn",
+    "price": 400,
+    "fieldNumber": 20,
+    "charge": {
+      "0": 35,
+      "1": 160,
+      "2": 440,
+      "3": 1200,
+      "4": 1600,
+      "5": 2000
+    },
+    "buildingCost": 200,
+    "mortgage": 200
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Benelux",
+    "name": "Rotterdam",
+    "price": 440,
+    "fieldNumber": 22,
+    "charge": {
+      "0": 35,
+      "1": 180,
+      "2": 500,
+      "3": 1400,
+      "4": 1750,
+      "5": 2100
+    },
+    "buildingCost": 300,
+    "mortgage": 220
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Benelux",
+    "name": "Bruksela",
+    "price": 440,
+    "fieldNumber": 24,
+    "charge": {
+      "0": 35,
+      "1": 180,
+      "2": 500,
+      "3": 1400,
+      "4": 1750,
+      "5": 2100
+    },
+    "buildingCost": 300,
+    "mortgage": 220
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Benelux",
+    "name": "Amsterdam",
+    "price": 480,
+    "fieldNumber": 25,
+    "charge": {
+      "0": 40,
+      "1": 200,
+      "2": 600,
+      "3": 1500,
+      "4": 1850,
+      "5": 2200
+    },
+    "buildingCost": 300,
+    "mortgage": 240
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Sweden",
+    "name": "Malmo",
+    "price": 520,
+    "fieldNumber": 27,
+    "charge": {
+      "0": 45,
+      "1": 220,
+      "2": 660,
+      "3": 1600,
+      "4": 1950,
+      "5": 2300
+    },
+    "buildingCost": 300,
+    "mortgage": 260
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Sweden",
+    "name": "Goteborg",
+    "price": 520,
+    "fieldNumber": 28,
+    "charge": {
+      "0": 45,
+      "1": 220,
+      "2": 660,
+      "3": 1600,
+      "4": 1950,
+      "5": 2300
+    },
+    "buildingCost": 300,
+    "mortgage": 260
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Sweden",
+    "name": "Sztokholm",
+    "price": 560,
+    "fieldNumber": 30,
+    "charge": {
+      "0": 50,
+      "1": 240,
+      "2": 720,
+      "3": 1700,
+      "4": 2050,
+      "5": 2400
+    },
+    "buildingCost": 300,
+    "mortgage": 280
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "RFN",
+    "name": "Frankfurt",
+    "price": 600,
+    "fieldNumber": 32,
+    "charge": {
+      "0": 55,
+      "1": 260,
+      "2": 780,
+      "3": 1900,
+      "4": 2200,
+      "5": 2550
+    },
+    "buildingCost": 400,
+    "mortgage": 300
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "RFN",
+    "name": "Kolonia",
+    "price": 600,
+    "fieldNumber": 33,
+    "charge": {
+      "0": 55,
+      "1": 260,
+      "2": 780,
+      "3": 1900,
+      "4": 2200,
+      "5": 2550
+    },
+    "buildingCost": 400,
+    "mortgage": 300
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "RFN",
+    "name": "Bonn",
+    "price": 640,
+    "fieldNumber": 35,
+    "charge": {
+      "0": 60,
+      "1": 300,
+      "2": 900,
+      "3": 2000,
+      "4": 2400,
+      "5": 2800
+    },
+    "buildingCost": 400,
+    "mortgage": 320
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Austria",
+    "name": "Insbruck",
+    "price": 700,
+    "fieldNumber": 38,
+    "charge": {
+      "0": 70,
+      "1": 350,
+      "2": 1000,
+      "3": 2200,
+      "4": 2600,
+      "5": 3000
+    },
+    "buildingCost": 400,
+    "mortgage": 350
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Austria",
+    "name": "Wiedeń",
+    "price": 800,
+    "fieldNumber": 40,
+    "charge": {
+      "0": 100,
+      "1": 400,
+      "2": 1200,
+      "3": 2800,
+      "4": 3400,
+      "5": 4000
+    },
+    "buildingCost": 400,
+    "mortgage": 400
+  },
+  {
+    "class": "com.mygdx.game.properties.Railway",
+    "name": "Linie kolejowe południowe",
+    "price": 400,
+    "fieldNumber": 6,
+    "charge": 50,
+    "mortgage": 200
+  },
+  {
+    "class": "com.mygdx.game.properties.Railway",
+    "name": "Linie kolejowe zachodnie",
+    "price": 400,
+    "fieldNumber": 16,
+    "charge": 50,
+    "mortgage": 200
+  },
+  {
+    "class": "com.mygdx.game.properties.Railway",
+    "name": "Linie kolejowe północne",
+    "price": 400,
+    "fieldNumber": 26,
+    "charge": 50,
+    "mortgage": 200
+  },
+  {
+    "class": "com.mygdx.game.properties.Railway",
+    "name": "Linie kolejowe wschodnie",
+    "price": 400,
+    "fieldNumber": 36,
+    "charge": 50,
+    "mortgage": 200
+  },
+  {
+    "class": "com.mygdx.game.properties.Utility",
+    "name": "Elektrownia atomowa",
+    "price": 300,
+    "fieldNumber": 13,
+    "chargeMultiplier": 10,
+    "mortgage": 150
+  },
+  {
+    "class": "com.mygdx.game.properties.Utility",
+    "name": "Sieć wodociągów",
+    "price": 300,
+    "fieldNumber": 29,
+    "chargeMultiplier": 10,
+    "mortgage": 150
+  }
+]

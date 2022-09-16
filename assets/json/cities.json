@@ -1,0 +1,446 @@
+[
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Grecja",
+    "name": "Saloniki",
+    "price": 120,
+    "fieldNumber": 2,
+    "charge": {
+      "ZERO": 10,
+      "ONE_HOUSE": 40,
+      "TWO_HOUSES": 120,
+      "THREE_HOUSES": 360,
+      "FOUR_HOUSES": 640,
+      "ONE_HOTEL": 900
+    },
+    "costs": {
+      "ONE_HOUSE": 100,
+      "ONE_HOTEL": 100
+    },
+    "mortgage": 60
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Grecja",
+    "name": "Ateny",
+    "price": 120,
+    "fieldNumber": 4,
+    "charge": {
+      "ZERO": 10,
+      "ONE_HOUSE": 40,
+      "TWO_HOUSES": 120,
+      "THREE_HOUSES": 360,
+      "FOUR_HOUSES": 640,
+      "ONE_HOTEL": 900
+    },
+    "costs": {
+      "ONE_HOUSE": 100,
+      "ONE_HOTEL": 100
+    },
+    "mortgage": 60
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Włochy",
+    "name": "Neapol",
+    "price": 200,
+    "fieldNumber": 7,
+    "charge": {
+      "ZERO": 15,
+      "ONE_HOUSE": 60,
+      "TWO_HOUSES": 180,
+      "THREE_HOUSES": 540,
+      "FOUR_HOUSES": 800,
+      "ONE_HOTEL": 1100
+    },
+    "costs": {
+      "ONE_HOUSE": 100,
+      "ONE_HOTEL": 100
+    },
+    "mortgage": 100
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Włochy",
+    "name": "Mediolan",
+    "price": 200,
+    "fieldNumber": 9,
+    "charge": {
+      "ZERO": 15,
+      "ONE_HOUSE": 60,
+      "TWO_HOUSES": 180,
+      "THREE_HOUSES": 540,
+      "FOUR_HOUSES": 800,
+      "ONE_HOTEL": 1100
+    },
+    "costs": {
+      "ONE_HOUSE": 100,
+      "ONE_HOTEL": 100
+    },
+    "mortgage": 100
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Włochy",
+    "name": "Rzym",
+    "price": 240,
+    "fieldNumber": 10,
+    "charge": {
+      "ZERO": 20,
+      "ONE_HOUSE": 80,
+      "TWO_HOUSES": 200,
+      "THREE_HOUSES": 600,
+      "FOUR_HOUSES": 900,
+      "ONE_HOTEL": 1200
+    },
+    "costs": {
+      "ONE_HOUSE": 100,
+      "ONE_HOTEL": 100
+    },
+    "mortgage": 120
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Hiszpania",
+    "name": "Barcelona",
+    "price": 280,
+    "fieldNumber": 12,
+    "charge": {
+      "ZERO": 20,
+      "ONE_HOUSE": 100,
+      "TWO_HOUSES": 300,
+      "THREE_HOUSES": 900,
+      "FOUR_HOUSES": 1250,
+      "ONE_HOTEL": 1500
+    },
+    "costs": {
+      "ONE_HOUSE": 200,
+      "ONE_HOTEL": 200
+    },
+    "mortgage": 140
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Hiszpania",
+    "name": "Sewilla",
+    "price": 280,
+    "fieldNumber": 14,
+    "charge": {
+      "ZERO": 20,
+      "ONE_HOUSE": 100,
+      "TWO_HOUSES": 300,
+      "THREE_HOUSES": 900,
+      "FOUR_HOUSES": 1250,
+      "ONE_HOTEL": 1500
+    },
+    "costs": {
+      "ONE_HOUSE": 200,
+      "ONE_HOTEL": 200
+    },
+    "mortgage": 140
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Hiszpania",
+    "name": "Madryt",
+    "price": 320,
+    "fieldNumber": 15,
+    "charge": {
+      "ZERO": 25,
+      "ONE_HOUSE": 120,
+      "TWO_HOUSES": 360,
+      "THREE_HOUSES": 1000,
+      "FOUR_HOUSES": 1400,
+      "ONE_HOTEL": 1800
+    },
+    "costs": {
+      "ONE_HOUSE": 200,
+      "ONE_HOTEL": 200
+    },
+    "mortgage": 160
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Anglia",
+    "name": "Liverpool",
+    "price": 320,
+    "fieldNumber": 17,
+    "charge": {
+      "ZERO": 30,
+      "ONE_HOUSE": 140,
+      "TWO_HOUSES": 400,
+      "THREE_HOUSES": 1100,
+      "FOUR_HOUSES": 1500,
+      "ONE_HOTEL": 1900
+    },
+    "costs": {
+      "ONE_HOUSE": 200,
+      "ONE_HOTEL": 200
+    },
+    "mortgage": 180
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Anglia",
+    "name": "Glasgow",
+    "price": 360,
+    "fieldNumber": 19,
+    "charge": {
+      "ZERO": 30,
+      "ONE_HOUSE": 140,
+      "TWO_HOUSES": 400,
+      "THREE_HOUSES": 1100,
+      "FOUR_HOUSES": 1500,
+      "ONE_HOTEL": 1900
+    },
+    "costs": {
+      "ONE_HOUSE": 200,
+      "ONE_HOTEL": 200
+    },
+    "mortgage": 180
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Anglia",
+    "name": "Londyn",
+    "price": 400,
+    "fieldNumber": 20,
+    "charge": {
+      "ZERO": 35,
+      "ONE_HOUSE": 160,
+      "TWO_HOUSES": 440,
+      "THREE_HOUSES": 1200,
+      "FOUR_HOUSES": 1600,
+      "ONE_HOTEL": 2000
+    },
+    "costs": {
+      "ONE_HOUSE": 200,
+      "ONE_HOTEL": 200
+    },
+    "mortgage": 200
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Benelux",
+    "name": "Rotterdam",
+    "price": 440,
+    "fieldNumber": 22,
+    "charge": {
+      "ZERO": 35,
+      "ONE_HOUSE": 180,
+      "TWO_HOUSES": 500,
+      "THREE_HOUSES": 1400,
+      "FOUR_HOUSES": 1750,
+      "ONE_HOTEL": 2100
+    },
+    "costs": {
+      "ONE_HOUSE": 300,
+      "ONE_HOTEL": 300
+    },
+    "mortgage": 220
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Benelux",
+    "name": "Bruksela",
+    "price": 440,
+    "fieldNumber": 24,
+    "charge": {
+      "ZERO": 35,
+      "ONE_HOUSE": 180,
+      "TWO_HOUSES": 500,
+      "THREE_HOUSES": 1400,
+      "FOUR_HOUSES": 1750,
+      "ONE_HOTEL": 2100
+    },
+    "costs": {
+      "ONE_HOUSE": 300,
+      "ONE_HOTEL": 300
+    },
+    "mortgage": 220
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Benelux",
+    "name": "Amsterdam",
+    "price": 480,
+    "fieldNumber": 25,
+    "charge": {
+      "ZERO": 40,
+      "ONE_HOUSE": 200,
+      "TWO_HOUSES": 600,
+      "THREE_HOUSES": 1500,
+      "FOUR_HOUSES": 1850,
+      "ONE_HOTEL": 2200
+    },
+    "costs": {
+      "ONE_HOUSE": 300,
+      "ONE_HOTEL": 300
+    },
+    "mortgage": 240
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Szwecja",
+    "name": "Malmo",
+    "price": 520,
+    "fieldNumber": 27,
+    "charge": {
+      "ZERO": 45,
+      "ONE_HOUSE": 220,
+      "TWO_HOUSES": 660,
+      "THREE_HOUSES": 1600,
+      "FOUR_HOUSES": 1950,
+      "ONE_HOTEL": 2300
+    },
+    "costs": {
+      "ONE_HOUSE": 300,
+      "ONE_HOTEL": 300
+    },
+    "mortgage": 260
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Szwecja",
+    "name": "Goteborg",
+    "price": 520,
+    "fieldNumber": 28,
+    "charge": {
+      "ZERO": 45,
+      "ONE_HOUSE": 220,
+      "TWO_HOUSES": 660,
+      "THREE_HOUSES": 1600,
+      "FOUR_HOUSES": 1950,
+      "ONE_HOTEL": 2300
+    },
+    "costs": {
+      "ONE_HOUSE": 300,
+      "ONE_HOTEL": 300
+    },
+    "mortgage": 260
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Szwecja",
+    "name": "Sztokholm",
+    "price": 560,
+    "fieldNumber": 30,
+    "charge": {
+      "ZERO": 50,
+      "ONE_HOUSE": 240,
+      "TWO_HOUSES": 720,
+      "THREE_HOUSES": 1700,
+      "FOUR_HOUSES": 2050,
+      "ONE_HOTEL": 2400
+    },
+    "costs": {
+      "ONE_HOUSE": 300,
+      "ONE_HOTEL": 300
+    },
+    "mortgage": 280
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "RFN",
+    "name": "Frankfurt",
+    "price": 600,
+    "fieldNumber": 32,
+    "charge": {
+      "ZERO": 55,
+      "ONE_HOUSE": 260,
+      "TWO_HOUSES": 780,
+      "THREE_HOUSES": 1900,
+      "FOUR_HOUSES": 2200,
+      "ONE_HOTEL": 2550
+    },
+    "costs": {
+      "ONE_HOUSE": 400,
+      "ONE_HOTEL": 400
+    },
+    "mortgage": 300
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "RFN",
+    "name": "Kolonia",
+    "price": 600,
+    "fieldNumber": 33,
+    "charge": {
+      "ZERO": 55,
+      "ONE_HOUSE": 260,
+      "TWO_HOUSES": 780,
+      "THREE_HOUSES": 1900,
+      "FOUR_HOUSES": 2200,
+      "ONE_HOTEL": 2550
+    },
+    "costs": {
+      "ONE_HOUSE": 400,
+      "ONE_HOTEL": 400
+    },
+    "mortgage": 300
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "RFN",
+    "name": "Bonn",
+    "price": 640,
+    "fieldNumber": 35,
+    "charge": {
+      "ZERO": 60,
+      "ONE_HOUSE": 300,
+      "TWO_HOUSES": 900,
+      "THREE_HOUSES": 2000,
+      "FOUR_HOUSES": 2400,
+      "ONE_HOTEL": 2800
+    },
+    "costs": {
+      "ONE_HOUSE": 400,
+      "ONE_HOTEL": 400
+    },
+    "mortgage": 320
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Austria",
+    "name": "Insbruck",
+    "price": 700,
+    "fieldNumber": 38,
+    "charge": {
+      "ZERO": 70,
+      "ONE_HOUSE": 350,
+      "TWO_HOUSES": 1000,
+      "THREE_HOUSES": 2200,
+      "FOUR_HOUSES": 2600,
+      "ONE_HOTEL": 3000
+    },
+    "costs": {
+      "ONE_HOUSE": 400,
+      "ONE_HOTEL": 400
+    },
+    "mortgage": 350
+  },
+  {
+    "class": "com.mygdx.game.properties.City",
+    "country": "Austria",
+    "name": "Wiedeń",
+    "price": 800,
+    "fieldNumber": 40,
+    "charge": {
+      "ZERO": 100,
+      "ONE_HOUSE": 400,
+      "TWO_HOUSES": 1200,
+      "THREE_HOUSES": 2800,
+      "FOUR_HOUSES": 3400,
+      "ONE_HOTEL": 4000
+    },
+    "costs": {
+      "ONE_HOUSE": 400,
+      "ONE_HOTEL": 400
+    },
+    "mortgage": 400
+  }
+]
+
+
+
+

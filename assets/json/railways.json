@@ -1,0 +1,54 @@
+[
+  {
+    "class": "com.mygdx.game.properties.Railway",
+    "name": "Linie kolejowe południowe",
+    "price": 400,
+    "fieldNumber": 6,
+    "charge": {
+      "ONE_RAILWAY": 50,
+      "TWO_RAILWAYS": 100,
+      "THREE_RAILWAYS": 200,
+      "FOUR_RAILWAYS": 400
+    },
+    "mortgage": 200
+  },
+  {
+    "class": "com.mygdx.game.properties.Railway",
+    "name": "Linie kolejowe zachodnie",
+    "price": 400,
+    "fieldNumber": 16,
+    "charge": {
+      "ONE_RAILWAY": 50,
+      "TWO_RAILWAYS": 100,
+      "THREE_RAILWAYS": 200,
+      "FOUR_RAILWAYS": 400
+    },
+    "mortgage": 200
+  },
+  {
+    "class": "com.mygdx.game.properties.Railway",
+    "name": "Linie kolejowe północne",
+    "price": 400,
+    "fieldNumber": 26,
+    "charge": {
+      "ONE_RAILWAY": 50,
+      "TWO_RAILWAYS": 100,
+      "THREE_RAILWAYS": 200,
+      "FOUR_RAILWAYS": 400
+    },
+    "mortgage": 200
+  },
+  {
+    "class": "com.mygdx.game.properties.Railway",
+    "name": "Linie kolejowe wschodnie",
+    "price": 400,
+    "fieldNumber": 36,
+    "charge": {
+      "ONE_RAILWAY": 50,
+      "TWO_RAILWAYS": 100,
+      "THREE_RAILWAYS": 200,
+      "FOUR_RAILWAYS": 400
+    },
+    "mortgage": 200
+  }
+]

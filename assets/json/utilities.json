@@ -1,0 +1,18 @@
+[
+  {
+    "class": "com.mygdx.game.properties.Utility",
+    "name": "Elektrownia atomowa",
+    "price": 300,
+    "fieldNumber": 13,
+    "chargeMultiplier": 10,
+    "mortgage": 150
+  },
+  {
+    "class": "com.mygdx.game.properties.Utility",
+    "name": "Sieć wodociągów",
+    "price": 300,
+    "fieldNumber": 29,
+    "chargeMultiplier": 10,
+    "mortgage": 150
+  }
+]

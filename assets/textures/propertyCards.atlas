@@ -1,0 +1,226 @@
+
+propertyCards.png
+size: 1024, 1024
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+property2
+  rotate: false
+  xy: 2, 400
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property4
+  rotate: false
+  xy: 2, 2
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property6
+  rotate: false
+  xy: 260, 400
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property7
+  rotate: false
+  xy: 260, 2
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property9
+  rotate: false
+  xy: 518, 400
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property10
+  rotate: false
+  xy: 518, 2
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+
+propertyCards2.png
+size: 1024, 1024
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+property12
+  rotate: false
+  xy: 2, 400
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property13
+  rotate: false
+  xy: 2, 2
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property14
+  rotate: false
+  xy: 260, 400
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property15
+  rotate: false
+  xy: 260, 2
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property17
+  rotate: false
+  xy: 518, 400
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property19
+  rotate: false
+  xy: 518, 2
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+
+propertyCards3.png
+size: 1024, 1024
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+property20
+  rotate: false
+  xy: 2, 400
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property22
+  rotate: false
+  xy: 2, 2
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property24
+  rotate: false
+  xy: 260, 400
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property25
+  rotate: false
+  xy: 260, 2
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property27
+  rotate: false
+  xy: 518, 400
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property29
+  rotate: false
+  xy: 518, 2
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+
+propertyCards4.png
+size: 1024, 1024
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+property32
+  rotate: false
+  xy: 2, 400
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property33
+  rotate: false
+  xy: 2, 2
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property35
+  rotate: false
+  xy: 260, 400
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property36
+  rotate: false
+  xy: 260, 2
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property38
+  rotate: false
+  xy: 518, 400
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+property40
+  rotate: false
+  xy: 518, 2
+  size: 256, 396
+  orig: 256, 396
+  offset: 0, 0
+  index: -1
+
+propertyCards5.png
+size: 1024, 1024
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+property16
+  rotate: false
+  xy: 2, 399
+  size: 256, 395
+  orig: 256, 395
+  offset: 0, 0
+  index: -1
+property26
+  rotate: false
+  xy: 2, 2
+  size: 256, 395
+  orig: 256, 395
+  offset: 0, 0
+  index: -1
+property28
+  rotate: false
+  xy: 260, 398
+  size: 255, 396
+  orig: 255, 396
+  offset: 0, 0
+  index: -1
+property30
+  rotate: false
+  xy: 517, 398
+  size: 255, 396
+  orig: 255, 396
+  offset: 0, 0
+  index: -1
