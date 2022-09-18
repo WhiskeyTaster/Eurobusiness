@@ -5,12 +5,10 @@ import com.mygdx.game.board.Field;
 import com.mygdx.game.action.Action;
 import com.mygdx.game.owners.Owner;
 import com.mygdx.game.owners.Player;
-import com.mygdx.game.properties.City;
-import com.mygdx.game.properties.Property;
-import com.mygdx.game.properties.Railway;
-import com.mygdx.game.properties.Utility;
+import com.mygdx.game.properties.*;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class PayController implements LinkedSubject{
     private final ArrayList<LinkedSubject> observers;
@@ -64,8 +62,8 @@ public class PayController implements LinkedSubject{
         this.actionFinished = actionFinished;
     }
 
-    public void createPayAction(Board board, Player currentPlayer) {
-        this.payAction = new PayAction(board, currentPlayer);
+    public void createPayAction(Field field, Player currentPlayer) {
+        this.payAction = new PayAction(field, currentPlayer);
     }
 
     @Override
@@ -99,16 +97,16 @@ public class PayController implements LinkedSubject{
     }
 
     class PayAction implements Action{
-        private final Board board;
+        private final Field field;
         private final Player currentPlayer;
 
         private boolean playerOutOfMoney;
 
         private boolean initialized;
 
-        public PayAction(Board board, Player currentPlayer) {
-            this.board = board;
-            this.currentPlayer = currentPlayer;
+        public PayAction(Field field, Player currentPlayer) {
+            this.field = Objects.requireNonNull(field, "field is null");
+            this.currentPlayer = Objects.requireNonNull(currentPlayer, "player is null");
 
             this.playerOutOfMoney = false;
 
@@ -123,7 +121,7 @@ public class PayController implements LinkedSubject{
             return playerOutOfMoney;
         }
 
-        public void calculateAmountToPay(Field field, Owner owner, int rolledValue) {
+        public void calculateAmountToPay(Field field, Player owner, int rolledValue) {
             int amount = 0;
             if (!field.haveProperty()) {    // EVENT HERE, DEPENDS ON KIND OF FIELD
 
@@ -146,46 +144,26 @@ public class PayController implements LinkedSubject{
             amountToPay = amount;
         }
 
-        private int calculateCityFee(final City city, final Owner owner) {
-            int amount = 0;
-            /*
-            City.Buildings ownedBuildings = city.getBuildings();
-            boolean ownerOfCountry = board.isPlayerHaveCountry(owner, city.getCountry());
-
-            if (ownedBuildings == City.Buildings.ZERO && ownerOfCountry)
-                amount = 2 * city.getCharge();
-            else
-                amount = city.getCharge();
-            */
-            return amount;
+        private int calculateCityFee(final City city, final Player owner) {
+            Countries country = Objects.requireNonNull(Countries.getCountry(city.getCountry()), "country is null");
+            System.out.println("Owned: " + owner.ownedCities(city.getCountry()));
+            System.out.println("Cities: " + country.getCities());
+            return owner.ownedCities(city.getCountry()) == country.getCities() && city.getBuildings() == 0
+                    ? 2 * city.getCharge() : city.getCharge();
         }
 
-        private int calculateRailwayFee(final Railway railway, final Owner owner) {
-            //int ownedRailways = board.ownedRailways(owner);
-
-            //return railway.getCharge(ownedRailways);
-            return 0;
+        private int calculateRailwayFee(final Railway railway, final Player owner) {
+            return owner.ownedRailways() * railway.getCharge();
         }
 
-        private int calculateUtilityFee(final Utility utility, final Owner owner, int rolledValue) {
-            /*
-            boolean ownedAllFields = board.ownAllUtilities(owner);
-            int amount = utility.getCharge(rolledValue);
-            if (ownedAllFields)
-                amount *= 2;
-
-            return amount;
-             */
-            return 0;
+        private int calculateUtilityFee(final Utility utility, final Player owner, int rolledValue) {
+            return owner.ownedUtilities() * utility.getCharge() * rolledValue;
         }
 
         @Override
         public void process() {
             if (!initialized) {
-                final int fieldNumber = currentPlayer.getCurrentFieldNumber();
-                final Field field = board.getField(fieldNumber);
-
-                final Owner fieldOwner = field.getOwner();
+                final Player fieldOwner = (Player) field.getOwner();
                 calculateAmountToPay(field, fieldOwner, rolledValue);
                 if (!currentPlayer.haveMoney(amountToPay)) {
                     playerOutOfMoney = true;

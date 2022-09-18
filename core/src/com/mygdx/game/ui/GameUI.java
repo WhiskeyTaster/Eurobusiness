@@ -5,6 +5,7 @@ import com.mygdx.game.managers.AuctionManager;
 import com.mygdx.game.managers.FieldManager;
 import com.mygdx.game.board.Board;
 import com.mygdx.game.logic.*;
+import com.mygdx.game.managers.PayManager;
 import org.jetbrains.annotations.NotNull;
 
 public class GameUI extends BaseUI{
@@ -24,6 +25,7 @@ public class GameUI extends BaseUI{
 
     private final FieldManager fieldManager;
     private AuctionManager auctionManager;
+    private PayManager payManager;
 
     public GameUI(final @NotNull Eurobusiness game, final @NotNull Board board) {
         super(game);
@@ -57,10 +59,11 @@ public class GameUI extends BaseUI{
                         board.getField(game.getCurrentPlayer().getCurrentFieldNumber()));
             }
             auctionManager.process(delta);
-            // auctionDrawer.draw(currentPlayer, delta);
         }
         if (mainController.isPlayerHaveToPay() && !mainController.isPayActionFinished()) {
-            // payDrawer.draw(currentPlayer, delta);
+            if (payManager == null)
+                payManager = new PayManager(game, payController, board);
+            payManager.process(delta);
         }
     }
 

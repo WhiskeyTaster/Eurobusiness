@@ -5,6 +5,7 @@ package com.mygdx.game.properties;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 public abstract class Property {
+
     private String name;
     private int price;
     private int fieldNumber;
