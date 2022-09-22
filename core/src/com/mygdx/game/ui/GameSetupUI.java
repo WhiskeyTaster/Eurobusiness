@@ -164,12 +164,13 @@ public class GameSetupUI extends BaseUI{
             }
         });
 
+
         stage.addActor(backButton);
         stage.addActor(nextButton);
         stage.addActor(addHumanPlayerButton);
         stage.addActor(removeHumanPlayerButton);
-        stage.addActor(addAiPlayerButton);
-        stage.addActor(removeAiPlayerButton);
+        // stage.addActor(addAiPlayerButton);
+        // stage.addActor(removeAiPlayerButton);
     }
 
     @Override
@@ -193,6 +194,7 @@ public class GameSetupUI extends BaseUI{
                 labelHashMap.get("humanPlayers").getY());
         textFieldHashMap.put("humanPlayers", humanPlayers);
 
+
         TextField aiPlayers = new TextField("0", skin, "default");
         aiPlayers.setSize(width, height);
         aiPlayers.setAlignment(Align.center);
@@ -201,6 +203,6 @@ public class GameSetupUI extends BaseUI{
         textFieldHashMap.put("aiPlayers", aiPlayers);
 
         stage.addActor(humanPlayers);
-        stage.addActor(aiPlayers);
+        // stage.addActor(aiPlayers);
     }
 }

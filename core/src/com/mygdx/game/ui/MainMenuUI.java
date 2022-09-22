@@ -38,21 +38,21 @@ public class MainMenuUI extends BaseUI{
         TextButton playGameButton = new TextButton("Nowa gra", skin, "default");
         playGameButton.setSize(buttonWidth, buttonHeight);
         playGameButton.setPosition(screenWidth / 2f - playGameButton.getWidth() / 2f,
-                screenHeight - marginY);
+                screenHeight / 2f + marginY / 2f);
 
-        /*
+
         TextButton scoreButton = new TextButton("Wyniki", skin, "default");
         scoreButton.setSize(buttonWidth, buttonHeight);
         scoreButton.setPosition(playGameButton.getX(),
                 playGameButton.getY() - buttonPadding);
-        */
 
-        /*
+
+
         TextButton rulesButton = new TextButton("Zasady gry", skin, "default");
         rulesButton.setSize(buttonWidth, buttonHeight);
         rulesButton.setPosition(scoreButton.getX(),
                 scoreButton.getY() - buttonPadding);
-        */
+
 
         TextButton exitButton = new TextButton("Wyjdz", skin, "default");
         exitButton.setSize(buttonWidth, buttonHeight);
