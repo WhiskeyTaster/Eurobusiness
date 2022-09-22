@@ -40,20 +40,24 @@ public class MainMenuUI extends BaseUI{
         playGameButton.setPosition(screenWidth / 2f - playGameButton.getWidth() / 2f,
                 screenHeight - marginY);
 
+        /*
         TextButton scoreButton = new TextButton("Wyniki", skin, "default");
         scoreButton.setSize(buttonWidth, buttonHeight);
         scoreButton.setPosition(playGameButton.getX(),
                 playGameButton.getY() - buttonPadding);
+        */
 
+        /*
         TextButton rulesButton = new TextButton("Zasady gry", skin, "default");
         rulesButton.setSize(buttonWidth, buttonHeight);
         rulesButton.setPosition(scoreButton.getX(),
                 scoreButton.getY() - buttonPadding);
+        */
 
         TextButton exitButton = new TextButton("Wyjdz", skin, "default");
         exitButton.setSize(buttonWidth, buttonHeight);
-        exitButton.setPosition(rulesButton.getX(),
-                rulesButton.getY() - buttonPadding);
+        exitButton.setPosition(playGameButton.getX(),
+                playGameButton.getY() - buttonPadding);
 
         playGameButton.addListener(new ClickListener() {
             @Override
@@ -72,8 +76,8 @@ public class MainMenuUI extends BaseUI{
         playGameButton.getLabel().setColor(Color.WHITE);
 
         stage.addActor(playGameButton);
-        stage.addActor(scoreButton);
-        stage.addActor(rulesButton);
+        // stage.addActor(scoreButton);
+        // stage.addActor(rulesButton);
         stage.addActor(exitButton);
     }
 
