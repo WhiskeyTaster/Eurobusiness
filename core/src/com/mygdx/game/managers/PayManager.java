@@ -45,7 +45,5 @@ public class PayManager {
             outOfMoneyUI.draw(delta);
         if (!payUI.isClosed())
             payUI.draw(delta);
-
     }
-
 }

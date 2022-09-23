@@ -91,11 +91,11 @@ public class AuctionUI extends BaseUI{
 
     @Override
     void initializeButtons() {
-        TextButton cancel = new TextButton("End", skin, "default");
+        TextButton cancel = new TextButton("Wycofaj", skin, "default");
         cancel.setSize(160, 80);
         cancel.setPosition(780, 360);
 
-        TextButton bid = new TextButton("Buy", skin, "default");
+        TextButton bid = new TextButton("Licytuj", skin, "default");
         bid.setSize(160, 80);
         bid.setPosition(cancel.getX() + cancel.getWidth() + 20, 360);
 
