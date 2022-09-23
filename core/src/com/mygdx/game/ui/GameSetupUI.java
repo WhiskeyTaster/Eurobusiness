@@ -61,7 +61,7 @@ public class GameSetupUI extends BaseUI{
 
         Label aiPlayers = new Label("Gracze AI: ", skin, "big-label");
         aiPlayers.setPosition(widthPadding, humanPlayers.getY() - heightPadding);
-        stage.addActor(aiPlayers);
+        // stage.addActor(aiPlayers);
         labelHashMap.put("aiPlayers", aiPlayers);
     }
 
