@@ -18,13 +18,15 @@ import java.util.HashMap;
 import java.util.Objects;
 
 public class FieldUI extends BaseUI{
-    private Field selectedField;
+    private final Field selectedField;
     private final Player currentPlayer;
     private final Bank bank;
     private final BaseWindow baseWindow;
     private final FieldWindow fieldWindow;
     private final HashMap<String, Label> stringLabelHashMap;
     private final HashMap<String, TextButton> stringTextButtonHashMap;
+    private boolean closed;
+    private boolean forSell;
 
     public FieldUI(Eurobusiness game, Field selectedField) {
         super(game);
@@ -32,12 +34,15 @@ public class FieldUI extends BaseUI{
         this.selectedField = Objects.requireNonNull(selectedField, "selectedField is null");
         this.bank = Objects.requireNonNull(game.bank, "bank is null");
 
-        this.baseWindow = new BaseWindow(screenWidth / 2f, screenHeight / 2f, 400f, 400f, Color.BLACK);
-        this.fieldWindow = new FieldWindow(screenWidth / 2f, screenHeight / 2f, 400f, 400f, Color.BLACK,
+        this.baseWindow = new BaseWindow(screenWidth / 2f - 200f, screenHeight / 2f - 200f, 400f, 400f, Color.BLACK);
+        this.fieldWindow = new FieldWindow(screenWidth / 2f - 500f, screenHeight / 2f - 200f, 300f, 400f, Color.BLACK,
                 selectedField.getPropertySprite());
 
         this.stringLabelHashMap = new HashMap<>();
         this.stringTextButtonHashMap = new HashMap<>();
+        this.closed = false;
+        this.forSell = false;
+        this.clearScreen = false;
     }
 
     private void updateButton() {
@@ -49,10 +54,10 @@ public class FieldUI extends BaseUI{
 
     @Override
     public void draw(float delta) {
-        super.draw(delta);
         baseWindow.draw();
         fieldWindow.draw();
         updateButton();
+        super.draw(delta);
     }
 
     @Override
@@ -113,6 +118,7 @@ public class FieldUI extends BaseUI{
             @Override
             public void clicked(InputEvent event, float x, float y) {
                // initSettingPriceStage(currentPlayer);
+                setForSell(true);
             }
         });
 
@@ -123,7 +129,7 @@ public class FieldUI extends BaseUI{
         cancelButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                selectedField = null;
+                setClosed(true);
             }
         });
 
@@ -142,6 +148,22 @@ public class FieldUI extends BaseUI{
         else {
             cancelButton.setPosition(780, 490);
         }
+    }
+
+    public boolean isClosed() {
+        return closed;
+    }
+
+    public void setClosed(boolean closed) {
+        this.closed = closed;
+    }
+
+    public boolean isForSell() {
+        return forSell;
+    }
+
+    public void setForSell(boolean forSell) {
+        this.forSell = forSell;
     }
 
     @Override

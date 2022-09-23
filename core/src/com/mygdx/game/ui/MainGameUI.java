@@ -2,6 +2,7 @@ package com.mygdx.game.ui;
 
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -38,6 +39,8 @@ public class MainGameUI extends BaseUI {
     private final TextureAtlas colorAtlas;
 
     private Sprite colorBox;
+    private final PauseMenuUI pauseMenuUI;
+    private boolean showPause;
 
     public MainGameUI(final @NotNull Eurobusiness game, final @NotNull Board board,
                       EndTurnController endTurnController, FieldController fieldController,
@@ -54,6 +57,8 @@ public class MainGameUI extends BaseUI {
 
         this.stringLabelHashMap = new HashMap<>();
         this.colorAtlas = new TextureAtlas(Gdx.files.internal("textures/colors.atlas"));
+        this.pauseMenuUI = new PauseMenuUI(game);
+        this.pauseMenuUI.initializeStage();
 
         moveController.createMoveAction(board, currentPlayer);
         fieldController.createFieldAction(board, currentPlayer);

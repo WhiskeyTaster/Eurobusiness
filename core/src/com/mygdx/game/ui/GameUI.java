@@ -1,5 +1,7 @@
 package com.mygdx.game.ui;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.mygdx.game.Eurobusiness;
 import com.mygdx.game.managers.AuctionManager;
 import com.mygdx.game.managers.FieldManager;
@@ -27,6 +29,9 @@ public class GameUI extends BaseUI{
     private AuctionManager auctionManager;
     private PayManager payManager;
 
+    private boolean showPause;
+    private final PauseMenuUI pauseMenuUI;
+
     public GameUI(final @NotNull Eurobusiness game, final @NotNull Board board) {
         super(game);
         this.board = board;
@@ -44,6 +49,8 @@ public class GameUI extends BaseUI{
 
         this.fieldManager = new FieldManager(game);
         this.auctionManager = null;
+        this.pauseMenuUI = new PauseMenuUI(game);
+        this.pauseMenuUI.initializeStage();
 
         linkControllers();
     }
@@ -52,7 +59,7 @@ public class GameUI extends BaseUI{
     public void draw(float delta) {
         super.draw(delta);
         mainGameUI.draw(delta);
-        fieldManager.process();
+        fieldManager.process(delta);
         if (mainController.isFieldToSell()) {
             if (auctionManager == null) {
                 auctionManager = new AuctionManager(game, board, buyController,
@@ -65,6 +72,13 @@ public class GameUI extends BaseUI{
                 payManager = new PayManager(game, payController, board);
             payManager.process(delta);
         }
+        checkKey();
+        if (showPause) {
+            pauseMenuUI.draw(delta);
+            showPause = !pauseMenuUI.isClosed();
+        }
+        else
+            pauseMenuUI.setClosed(false);
     }
 
     private void linkControllers() {
@@ -103,5 +117,10 @@ public class GameUI extends BaseUI{
     @Override
     void initializeTextFields() {
 
+    }
+
+    public void checkKey() {
+        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE))
+            showPause = true;
     }
 }

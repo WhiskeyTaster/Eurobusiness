@@ -7,6 +7,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.mygdx.game.Eurobusiness;
 import com.mygdx.game.board.Field;
 import com.mygdx.game.owners.Player;
+import com.mygdx.game.ui.FieldUI;
 
 import java.util.Objects;
 
@@ -15,14 +16,27 @@ public class FieldManager {
     private final Eurobusiness game;
     private final Vector3 touchPos;
     private Field selectedField;
+    private FieldUI fieldUI;
 
     public FieldManager(final Eurobusiness game) {
         this.game = Objects.requireNonNull(game, "game is null");
         this.touchPos = new Vector3();
+        this.selectedField = null;
     }
 
-    public void process() {
-
+    public void process(float delta) {
+        checkTouchedField(game.getCurrentPlayer());
+        if (selectedField != null) {
+            if (fieldUI == null) {
+                fieldUI = new FieldUI(game, selectedField);
+                fieldUI.initializeStage();
+            }
+            fieldUI.draw(delta);
+            if (fieldUI.isClosed()) {
+                selectedField = null;
+                fieldUI = null;
+            }
+        }
     }
 
     private void checkTouchedField(Player currentPlayer) {
