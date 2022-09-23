@@ -51,3 +51,5 @@ Elementy określone kolejnością:
    - Gracz znalazł się na polu należącym do Banku i następuje wydarzenie związane z polem (idziesz do więzienia, opłata za parking, etc.). 
 4. Dopiero po tych trzech powyższych fazach Gracz __może__ zakończych turę, jednak nie jest zobowiązany zrobić to natychmiast po tych fazach. Gracz w tym momencie również może podjąć się akcji opisanych w elementach, które można robić w dowolnej chwili. 
 5. Kolejkę Gracza kończy naciśnięcie przycisku kończącego kolejkę, wówczas następuje tura następnego Gracza. 
+
+Aby zatrzymać rozgrywkę, wystarczy w jej trakcie wcisnąć __ESC__. Wówczas zostanie wyświetlone menu pozwalające na powrót do gry lub wyjście do menu głównego. 
