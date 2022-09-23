@@ -75,4 +75,7 @@ public abstract class Owner {
     public boolean haveMoney(int amount) {
         return money - amount >= 0;
     }
+    public static void resetId() {
+        next_id = 0;
+    }
 }

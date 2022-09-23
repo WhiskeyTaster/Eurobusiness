@@ -94,4 +94,14 @@ public class Eurobusiness extends Game {
 	public Player getCurrentPlayer() {
 		return players.get(currentPlayer);
 	}
+
+	public void cleanPlayers() {
+		this.players = new ArrayList<>();
+        currentPlayer = 0;
+        Owner.resetId();
+	}
+
+	public void cleanBank() {
+		this.bank = null;
+	}
 }

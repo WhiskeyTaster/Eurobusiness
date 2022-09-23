@@ -31,6 +31,7 @@ public class GameScreen implements Screen {
     private void setUp() {
         final int START_FIELD = 1;
         Field startField = board.getField(START_FIELD);
+
         for (Player player : game.players) {
             player.getPawn().setPosition(startField.getX() + startField.getWidth() / 2 - player.getPawn().getWidth() / 2,
                     startField.getY() + startField.getHeight() / 2 - player.getPawn().getHeight() / 2);
