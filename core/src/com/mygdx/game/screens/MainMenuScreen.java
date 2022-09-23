@@ -16,6 +16,8 @@ public class MainMenuScreen implements Screen {
     public void show() {
         this.mainMenuUI = new MainMenuUI(game);
         mainMenuUI.initializeStage();
+        game.cleanPlayers();
+        game.cleanBank();
     }
 
     @Override
