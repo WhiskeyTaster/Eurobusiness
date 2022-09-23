@@ -33,11 +33,13 @@ Gracz posiada Saloniki oraz Ateny, przy czym w Salonikach Gracz postawił już j
 ## Jak grać? 
 Po wybraniu ustawień dotyczącej ilości Graczy, każdy z Graczy wybiera unikalny dla siebie kolor oraz pionek, a także nazwę gracza, która musi zawierać więcej niż jeden znak. Po tym, jak ostatni z graczy dokona wyboru następuje start gry. Gracze zaczynają grę w tej samej kolejności, w której wybierali pionki. 
 Gra ma elementy, które można robić w dowolnej chwili, jak i tylko w określonych momentach. 
+
 Elementy, które można robić w dowolnej chwili to: 
 1. zastawienie pola, 
 2. sprzedaż pola należącego do Gracza w drodze licytacji, 
 3. zakup domu/hotelu.
-Wyżej wymienione elementy są dostępne tylko na tych polach, które należą do Gracza mającego aktualnie kolejkę. Dostęp do tych elementów Gracz uzyskuje klikając na pole, z którym chce on coś zrobić. 
+Wyżej wymienione elementy są dostępne tylko na tych polach, które należą do Gracza mającego aktualnie kolejkę. Dostęp do tych elementów Gracz uzyskuje klikając na pole, z którym chce on coś zrobić.
+
 Elementy określone kolejnością:
 1. Na początku należy wykonać rzut. Akcja rzutu symuluje rzut dwiema kośćmi sześciościennymi o jednakowym prawdopodobieństwie każdego wyniku. Jeśli Gracz wyrzuci parę (na przykład (2, 2)), wówczas automatycznie zostaje wykonany dodatkowy rzut, którego wynik sumuje się z już wyrzuconym. Suma ta jest traktowana jako otateczny wynik rzutu. Następnie następuje faza ruchu. 
 2. W fazie ruchu mamy do czynienia z dwoma przypadkami:
