@@ -5,20 +5,16 @@ import com.mygdx.game.owners.Owner;
 import com.mygdx.game.properties.Property;
 
 public class Field {
-    static int FIELD_ID = 1;
-
     private final Property property;
     private final Sprite fieldSprite;
     private Owner owner;
     private final int fieldNumber;
 
-    public Field(Property property, Sprite fieldSprite, Owner owner) {
+    public Field(Property property, Sprite fieldSprite, Owner owner, int fieldNumber) {
         this.property = property;
         this.fieldSprite = fieldSprite;
         this.owner = owner;
-        this.fieldNumber = FIELD_ID;
-
-        FIELD_ID++;
+        this.fieldNumber = fieldNumber;
     }
 
     public int getFieldNumber() {

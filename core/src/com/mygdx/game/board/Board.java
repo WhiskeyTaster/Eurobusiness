@@ -30,6 +30,10 @@ public class Board {
         this.center = new Center(new Texture(Gdx.files.internal("textures/fields/1024/center.jpg")));
         createFields(resolution, owner);
         setPosition(resolution, position);
+
+        for (Field field : fields) {
+            System.out.println(field.getFieldNumber());
+        }
     }
 
     private void createFields(Resolution resolution, Owner owner) {
@@ -40,7 +44,7 @@ public class Board {
             String fileName = "field" + (i + 1) + ".jpg";
             Texture texture = new Texture(Gdx.files.internal(path + fileName));
             Sprite fieldSprite = new Sprite(texture);
-            Field field = new Field(propertyHashMap.get(i + 1), fieldSprite, owner);
+            Field field = new Field(propertyHashMap.get(i + 1), fieldSprite, owner, i + 1);
             fields.add(field);
         }
     }
