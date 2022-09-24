@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.mygdx.game.Eurobusiness;
 import com.mygdx.game.managers.AuctionManager;
+import com.mygdx.game.managers.BuildingsManager;
 import com.mygdx.game.managers.FieldManager;
 import com.mygdx.game.board.Board;
 import com.mygdx.game.logic.*;
@@ -31,6 +32,7 @@ public class GameUI extends BaseUI{
 
     private boolean showPause;
     private final PauseMenuUI pauseMenuUI;
+    private final BuildingsManager buildingsManager;
 
     public GameUI(final @NotNull Eurobusiness game, final @NotNull Board board) {
         super(game);
@@ -47,10 +49,12 @@ public class GameUI extends BaseUI{
         this.mainGameUI = new MainGameUI(game, board, endTurnController, fieldController, moveController, rollController);
         this.mainGameUI.initializeStage();
 
-        this.fieldManager = new FieldManager(game);
+        this.buildingsManager = new BuildingsManager(game, mainController);
+        this.fieldManager = new FieldManager(game, buildingsManager);
         this.auctionManager = null;
         this.pauseMenuUI = new PauseMenuUI(game);
         this.pauseMenuUI.initializeStage();
+
 
         linkControllers();
     }
@@ -59,6 +63,7 @@ public class GameUI extends BaseUI{
     public void draw(float delta) {
         super.draw(delta);
         mainGameUI.draw(delta);
+        buildingsManager.process();
         fieldManager.process(delta);
         if (mainController.isFieldToSell()) {
             if (auctionManager == null) {

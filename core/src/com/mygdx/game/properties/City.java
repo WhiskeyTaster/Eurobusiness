@@ -44,6 +44,14 @@ public class City extends Property{
         return buildings;
     }
 
+    public int getBuildingCost() {
+        return buildingCost;
+    }
+
+    public void addBuilding() {
+        buildings++;
+    }
+
     @Override
     public String toString() {
         return super.toString() +

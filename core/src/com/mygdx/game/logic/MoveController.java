@@ -19,6 +19,7 @@ public class MoveController implements LinkedSubject{
     private boolean goToPrison;
     private boolean movingFinished;
     private boolean playerRolled;
+    private boolean round;
 
     public MoveController() {
         this.observers = new ArrayList<>();
@@ -28,6 +29,7 @@ public class MoveController implements LinkedSubject{
         this.goToPrison = false;
         this.movingFinished = false;
         this.playerRolled = false;
+        this.round = false;
     }
 
     public void process() {
@@ -65,6 +67,10 @@ public class MoveController implements LinkedSubject{
         }
     }
 
+    public boolean isRound() {
+        return round;
+    }
+
     @Override
     public ArrayList<LinkedSubject> getSubjects() {
         return observers;
@@ -82,6 +88,8 @@ public class MoveController implements LinkedSubject{
         private final ArrayList<Integer> path;
         private Iterator<Integer> iterator;
 
+        private int startingField;
+        private int endingField;
 
         public MoveAction(Board board, Player currentPlayer) {
             this.board = board;
@@ -104,6 +112,7 @@ public class MoveController implements LinkedSubject{
                     return null;
                 }
             };
+            this.startingField = currentPlayer.getCurrentFieldNumber();
         }
 
         public void process() {
@@ -120,6 +129,7 @@ public class MoveController implements LinkedSubject{
         @Override
         public void informController() {
             MoveController.this.movingFinished = this.movingFinished;
+            MoveController.this.round = startingField > endingField;
             MoveController.this.informSubjects();
         }
 
@@ -206,6 +216,7 @@ public class MoveController implements LinkedSubject{
                 for (int i = currentFieldNumber + 1; i <= targetField; i++)
                     path.add(i);
             }
+            endingField = targetField;
         /*
         System.out.println("***MOVE ACTION INFO***");
         System.out.println("RolledValue: " + rolledValue + ", currentField: " + currentFieldNumber +

@@ -12,6 +12,7 @@ import com.mygdx.game.screens.*;
 import com.mygdx.game.settings.Settings;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class Eurobusiness extends Game {
@@ -37,7 +38,9 @@ public class Eurobusiness extends Game {
 	public Pair<Integer, Integer> numberOfPlayers;
 	public Bank bank;
 	public ArrayList<Player> players;
-	
+	public HashMap<Player, Integer> hotelBuyCounter;
+	public HashMap<Player, Integer> houseBuyCounter;
+
 	@Override
 	public void create () {
 		this.settings = new Settings();
@@ -61,6 +64,8 @@ public class Eurobusiness extends Game {
 		this.gameScreen = new GameScreen(this);
 
 		this.setScreen(loadingScreen);
+		this.hotelBuyCounter = new HashMap<>();
+		this.houseBuyCounter = new HashMap<>();
 	}
 
 	public void setSkin(Skin skin) {
@@ -95,13 +100,13 @@ public class Eurobusiness extends Game {
 		return players.get(currentPlayer);
 	}
 
-	public void cleanPlayers() {
+	public void clean() {
 		this.players = new ArrayList<>();
+		tour = 0;
         currentPlayer = 0;
         Owner.resetId();
-	}
-
-	public void cleanBank() {
 		this.bank = null;
+		this.hotelBuyCounter = new HashMap<>();
+		this.houseBuyCounter = new HashMap<>();
 	}
 }

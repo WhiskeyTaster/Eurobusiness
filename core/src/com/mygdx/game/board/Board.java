@@ -30,10 +30,6 @@ public class Board {
         this.center = new Center(new Texture(Gdx.files.internal("textures/fields/1024/center.jpg")));
         createFields(resolution, owner);
         setPosition(resolution, position);
-
-        for (Field field : fields) {
-            System.out.println(field.getFieldNumber());
-        }
     }
 
     private void createFields(Resolution resolution, Owner owner) {
@@ -82,6 +78,7 @@ public class Board {
             Field field = fields.get(i);
             beginX -= field.getWidth();
             field.setPosition(beginX, beginY);
+            field.setDirection(Direction.SOUTH);
         }
         System.out.println("BREAK");
         beginX = fields.get(LEFT_BOTTOM_CORNER).getX();
@@ -93,6 +90,7 @@ public class Board {
             Field field = fields.get(i);
             field.setPosition(beginX, beginY);
             beginY += field.getHeight();
+            field.setDirection(Direction.WEST);
 
         }
         System.out.println("BREAK");
@@ -105,6 +103,7 @@ public class Board {
             Field field = fields.get(i);
             field.setPosition(beginX, beginY);
             beginX += field.getWidth();
+            field.setDirection(Direction.NORTH);
 
         }
         System.out.println("BREAK");
@@ -117,6 +116,7 @@ public class Board {
             Field field = fields.get(i);
             beginY -= field.getHeight();
             field.setPosition(beginX, beginY);
+            field.setDirection(Direction.EAST);
         }
         center.setPosition(fields.get(LEFT_BOTTOM_CORNER).getX() + fields.get(LEFT_BOTTOM_CORNER).getWidth(),
                 fields.get(LEFT_BOTTOM_CORNER).getY() + fields.get(LEFT_BOTTOM_CORNER).getHeight());

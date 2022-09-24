@@ -70,4 +70,14 @@ public class Player extends Owner{
                 num++;
         return num;
     }
+
+    public ArrayList<Field> citiesList(String country) {
+        ArrayList<Field> cities = new ArrayList<>();
+        for (Field field : getOwnedFields()) {
+            if (field.getProperty() instanceof City)
+                if (((City) field.getProperty()).getCountry().equals(country))
+                    cities.add(field);
+        }
+        return cities;
+    }
 }

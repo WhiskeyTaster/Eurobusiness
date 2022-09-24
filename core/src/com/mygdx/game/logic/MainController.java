@@ -19,6 +19,7 @@ public class MainController implements LinkedSubject{
     private boolean playerRolled;
     private boolean tourFinished;
     private boolean twoPairsRolled;
+    private boolean round;
 
     private int rolledValue;
 
@@ -37,6 +38,7 @@ public class MainController implements LinkedSubject{
         this.playerRolled = false;
         this.tourFinished = false;
         this.twoPairsRolled = false;
+        this.round = false;
 
         this.rolledValue = 0;
 
@@ -79,17 +81,24 @@ public class MainController implements LinkedSubject{
         return twoPairsRolled;
     }
 
+    public boolean isRound() {
+        return round;
+    }
+
     @Override
     public void update(LinkedSubject subject) {
         if (subject instanceof RollController) {
             RollController rollController = (RollController) subject;
             this.playerRolled = rollController.isPlayerRolled();
             this.twoPairsRolled = rollController.isTwoPairsRolled();
+            // this.twoPairsRolled = false;
             this.rolledValue = rollController.getRolledValue();
+            // this.rolledValue = 1;
         }
         if (subject instanceof MoveController) {
             MoveController moveController = (MoveController) subject;
             this.movingFinished = moveController.isMovingFinished();
+            this.round = moveController.isRound();
         }
         if (subject instanceof EndTurnController) {
             EndTurnController endTurnController = (EndTurnController) subject;

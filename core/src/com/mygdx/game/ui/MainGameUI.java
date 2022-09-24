@@ -74,6 +74,7 @@ public class MainGameUI extends BaseUI {
 
         drawFieldsAndPlayers();
         colorFields();
+        drawBuildings();
         drawPlayerBox();
         drawBankBox();
 
@@ -100,6 +101,11 @@ public class MainGameUI extends BaseUI {
                 shapeRenderer.end();
             }
         }
+    }
+
+    private void drawBuildings() {
+        for (Field field : board.getFields())
+            field.drawBuildings();
     }
 
     private void drawFieldsAndPlayers() {

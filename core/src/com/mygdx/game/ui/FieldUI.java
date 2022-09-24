@@ -8,6 +8,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.mygdx.game.Eurobusiness;
 import com.mygdx.game.board.Field;
+import com.mygdx.game.logic.MainController;
+import com.mygdx.game.managers.BuildingsManager;
 import com.mygdx.game.owners.Bank;
 import com.mygdx.game.owners.Player;
 import com.mygdx.game.properties.City;
@@ -27,12 +29,14 @@ public class FieldUI extends BaseUI{
     private final HashMap<String, TextButton> stringTextButtonHashMap;
     private boolean closed;
     private boolean forSell;
+    private final BuildingsManager buildingsManager;
 
-    public FieldUI(Eurobusiness game, Field selectedField) {
+    public FieldUI(Eurobusiness game, Field selectedField, BuildingsManager buildingsManager) {
         super(game);
         this.currentPlayer = Objects.requireNonNull(game.getCurrentPlayer(), "currentPlayer is null");
         this.selectedField = Objects.requireNonNull(selectedField, "selectedField is null");
         this.bank = Objects.requireNonNull(game.bank, "bank is null");
+        this.buildingsManager = Objects.requireNonNull(buildingsManager, "mainController is null");
 
         this.baseWindow = new BaseWindow(screenWidth / 2f - 200f, screenHeight / 2f - 200f, 400f, 400f, Color.BLACK);
         this.fieldWindow = new FieldWindow(screenWidth / 2f - 500f, screenHeight / 2f - 200f, 300f, 400f, Color.BLACK,
@@ -144,6 +148,26 @@ public class FieldUI extends BaseUI{
             buyHotelButton.setPosition(960, 490);
             stage.addActor(buyHotelButton);
             cancelButton.setPosition(780, 390);
+
+            buyHouseButton.addListener(new ClickListener() {
+               @Override
+               public void clicked(InputEvent event, float x, float y) {
+                   if (buildingsManager.canBuyHouse(currentPlayer, selectedField)) {
+                        buildingsManager.buyBuilding(currentPlayer, selectedField);
+                        buildingsManager.houseBought();
+                   }
+               }
+            });
+
+            buyHotelButton.addListener(new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    if (buildingsManager.canBuyHotel(currentPlayer, selectedField)) {
+                        buildingsManager.buyBuilding(currentPlayer, selectedField);
+                        buildingsManager.hotelBought();
+                    }
+                }
+            });
         }
         else {
             cancelButton.setPosition(780, 490);

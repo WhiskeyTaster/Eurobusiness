@@ -46,10 +46,7 @@ public abstract class Owner {
     }
 
     public void addField(Field field) {
-        System.out.println("Field added, player id: " + id);
         ownedFields.add(field);
-        for (Field field1 : ownedFields)
-            System.out.println(field1.getProperty().getName());
     }
 
     public void removeField(Field field) {
