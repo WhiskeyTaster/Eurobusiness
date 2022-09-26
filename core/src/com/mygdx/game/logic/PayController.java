@@ -146,8 +146,6 @@ public class PayController implements LinkedSubject{
 
         private int calculateCityFee(final City city, final Player owner) {
             Countries country = Objects.requireNonNull(Countries.getCountry(city.getCountry()), "country is null");
-            System.out.println("Owned: " + owner.ownedCities(city.getCountry()));
-            System.out.println("Cities: " + country.getCities());
             return owner.ownedCities(city.getCountry()) == country.getCities() && city.getBuildings() == 0
                     ? 2 * city.getCharge() : city.getCharge();
         }

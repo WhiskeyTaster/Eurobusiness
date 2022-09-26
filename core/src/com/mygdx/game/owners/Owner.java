@@ -22,17 +22,6 @@ public abstract class Owner {
         next_id++;
     }
 
-    public Field getField(int uniqueFieldNumber) {
-        try {
-            for (Field field : ownedFields)
-                if (field.getFieldNumber() == uniqueFieldNumber)
-                    return field;
-            throw new RuntimeException("Field doesn't exists.");
-        } catch (RuntimeException e) {
-        }
-        return null;
-    }
-
     public int getId() {
         return id;
     }

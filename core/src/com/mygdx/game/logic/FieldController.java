@@ -144,10 +144,6 @@ public class FieldController implements LinkedSubject{
                     playerHaveToPay = true;
                 }
             }
-        /*
-        System.out.println("*** FIELD ACTION INFO ***");
-        System.out.println("FieldChecked: " + fieldChecked + ", fieldToSell: " + fieldToSell);
-        */
         }
     }
 }

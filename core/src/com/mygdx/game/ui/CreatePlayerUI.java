@@ -199,13 +199,11 @@ public class CreatePlayerUI extends BaseUI{
 
                 if (players.getFirst() == ownerCreator.getHumansNumber()) {
                     // TODO: create AI (after AI will be already implemented)
-                    System.out.println("CREATED");
                     game.bank = (Bank) ownerCreator.getOwners().get(0);
                     for (Owner player : ownerCreator.getOwners()) {
                         if (player instanceof Player) {
                             game.players.add((Player) player);
                             game.hotelBuyCounter.put((Player) player, 0);
-                            game.houseBuyCounter.put((Player) player, 0);
                         }
                     }
                     game.setScreen(game.gameScreen);

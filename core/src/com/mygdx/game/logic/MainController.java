@@ -91,9 +91,7 @@ public class MainController implements LinkedSubject{
             RollController rollController = (RollController) subject;
             this.playerRolled = rollController.isPlayerRolled();
             this.twoPairsRolled = rollController.isTwoPairsRolled();
-            // this.twoPairsRolled = false;
             this.rolledValue = rollController.getRolledValue();
-            // this.rolledValue = 1;
         }
         if (subject instanceof MoveController) {
             MoveController moveController = (MoveController) subject;

@@ -1,6 +1,7 @@
 package com.mygdx.game.logic;
 
 import com.badlogic.gdx.Gdx;
+import com.mygdx.game.Eurobusiness;
 import com.mygdx.game.board.Board;
 import com.mygdx.game.board.Field;
 import com.mygdx.game.action.Action;
@@ -52,8 +53,8 @@ public class MoveController implements LinkedSubject{
         return rolledValue;
     }
 
-    public void createMoveAction(Board board, Player currentPlayer) {
-        this.action = new MoveAction(board, currentPlayer);
+    public void createMoveAction(Board board, Eurobusiness game) {
+        this.action = new MoveAction(board, game);
     }
 
     @Override
@@ -77,6 +78,7 @@ public class MoveController implements LinkedSubject{
     }
 
     class MoveAction implements Action{
+        private final Eurobusiness game;
         private final Player movingPlayer;
         private final Board board;
 
@@ -91,9 +93,10 @@ public class MoveController implements LinkedSubject{
         private int startingField;
         private int endingField;
 
-        public MoveAction(Board board, Player currentPlayer) {
+        public MoveAction(Board board, Eurobusiness game) {
             this.board = board;
-            this.movingPlayer = currentPlayer;
+            this.game = game;
+            this.movingPlayer = game.getCurrentPlayer();
 
             this.nextFieldNumber = 0;
 
@@ -112,7 +115,8 @@ public class MoveController implements LinkedSubject{
                     return null;
                 }
             };
-            this.startingField = currentPlayer.getCurrentFieldNumber();
+            this.startingField = this.movingPlayer.getCurrentFieldNumber();
+            this.endingField = startingField;
         }
 
         public void process() {
@@ -177,6 +181,8 @@ public class MoveController implements LinkedSubject{
                 }
             }
             else {
+                if (nextFieldNumber == 1)
+                    game.bank.pay(game.getCurrentPlayer(), 400);
                 if (iterator.hasNext())
                     nextFieldNumber = iterator.next();
                 else {
@@ -217,11 +223,6 @@ public class MoveController implements LinkedSubject{
                     path.add(i);
             }
             endingField = targetField;
-        /*
-        System.out.println("***MOVE ACTION INFO***");
-        System.out.println("RolledValue: " + rolledValue + ", currentField: " + currentFieldNumber +
-                ", targetField: " + targetField + ", path: " + path.toString());
-         */
         }
 
         private void setUpNewPath() {

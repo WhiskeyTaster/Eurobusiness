@@ -78,9 +78,8 @@ public class Board {
             Field field = fields.get(i);
             beginX -= field.getWidth();
             field.setPosition(beginX, beginY);
-            field.setDirection(Direction.SOUTH);
+            field.setBuildings(Direction.SOUTH);
         }
-        System.out.println("BREAK");
         beginX = fields.get(LEFT_BOTTOM_CORNER).getX();
         beginY = fields.get(LEFT_BOTTOM_CORNER).getY() + fields.get(LEFT_BOTTOM_CORNER).getHeight();
 
@@ -90,10 +89,9 @@ public class Board {
             Field field = fields.get(i);
             field.setPosition(beginX, beginY);
             beginY += field.getHeight();
-            field.setDirection(Direction.WEST);
+            field.setBuildings(Direction.WEST);
 
         }
-        System.out.println("BREAK");
         beginX = fields.get(LEFT_TOP_CORNER).getX() + fields.get(LEFT_TOP_CORNER).getWidth();
         beginY = fields.get(LEFT_TOP_CORNER).getY();
 
@@ -103,10 +101,9 @@ public class Board {
             Field field = fields.get(i);
             field.setPosition(beginX, beginY);
             beginX += field.getWidth();
-            field.setDirection(Direction.NORTH);
+            field.setBuildings(Direction.NORTH);
 
         }
-        System.out.println("BREAK");
         beginX = fields.get(RIGHT_TOP_CORNER).getX();
         beginY = fields.get(RIGHT_TOP_CORNER).getY();
 
@@ -116,7 +113,7 @@ public class Board {
             Field field = fields.get(i);
             beginY -= field.getHeight();
             field.setPosition(beginX, beginY);
-            field.setDirection(Direction.EAST);
+            field.setBuildings(Direction.EAST);
         }
         center.setPosition(fields.get(LEFT_BOTTOM_CORNER).getX() + fields.get(LEFT_BOTTOM_CORNER).getWidth(),
                 fields.get(LEFT_BOTTOM_CORNER).getY() + fields.get(LEFT_BOTTOM_CORNER).getHeight());

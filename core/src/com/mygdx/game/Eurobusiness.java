@@ -39,7 +39,6 @@ public class Eurobusiness extends Game {
 	public Bank bank;
 	public ArrayList<Player> players;
 	public HashMap<Player, Integer> hotelBuyCounter;
-	public HashMap<Player, Integer> houseBuyCounter;
 
 	@Override
 	public void create () {
@@ -65,7 +64,6 @@ public class Eurobusiness extends Game {
 
 		this.setScreen(loadingScreen);
 		this.hotelBuyCounter = new HashMap<>();
-		this.houseBuyCounter = new HashMap<>();
 	}
 
 	public void setSkin(Skin skin) {
@@ -107,6 +105,5 @@ public class Eurobusiness extends Game {
         Owner.resetId();
 		this.bank = null;
 		this.hotelBuyCounter = new HashMap<>();
-		this.houseBuyCounter = new HashMap<>();
 	}
 }

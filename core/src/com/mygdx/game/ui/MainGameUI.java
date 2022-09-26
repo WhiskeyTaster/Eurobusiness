@@ -6,6 +6,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -60,7 +61,7 @@ public class MainGameUI extends BaseUI {
         this.pauseMenuUI = new PauseMenuUI(game);
         this.pauseMenuUI.initializeStage();
 
-        moveController.createMoveAction(board, currentPlayer);
+        moveController.createMoveAction(board, game);
         fieldController.createFieldAction(board, currentPlayer);
 
         initColorBox();
@@ -104,8 +105,14 @@ public class MainGameUI extends BaseUI {
     }
 
     private void drawBuildings() {
-        for (Field field : board.getFields())
-            field.drawBuildings();
+        batch.begin();
+        for (Field field : board.getFields()) {
+            if (field.getHotel() != null && field.getHotelsNumber() == 1)
+                field.getHotel().draw(batch);
+            for (Sprite sprite : field.getHouses())
+                sprite.draw(batch);
+        }
+        batch.end();
     }
 
     private void drawFieldsAndPlayers() {

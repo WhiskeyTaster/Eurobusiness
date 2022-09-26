@@ -45,11 +45,11 @@ public class BuildingsManager{
         Integer ownedCities = currentPlayer.ownedCities(country);
         if (!ownedCities.equals(Objects.requireNonNull(Countries.getCountry(country)).getCities()))
             return false;
-        if (currentField.getHotels() == 1)
+        if (currentField.getHotelsNumber() == 1)
             return false;
         ArrayList<Field> cities = currentPlayer.citiesList(country);
         for (Field field : cities)
-            if (!(field.getHouses() == 4 || (field.getHouses() == 0 && field.getHotels() == 1))) {
+            if (!(currentField.getHousesNumber() == 4 || (currentField.getHousesNumber() == 0 && field.getHotelsNumber() == 1))) {
                 return false;
             }
         return true;
@@ -61,12 +61,12 @@ public class BuildingsManager{
         Integer ownedCities = currentPlayer.ownedCities(country);
         if (!ownedCities.equals(Objects.requireNonNull(Countries.getCountry(country)).getCities()))
             return false;
-        if (currentField.getHotels() == 1)
+        if (currentField.getHotelsNumber() == 1)
             return false;
         ArrayList<Field> cities = currentPlayer.citiesList(country);
-        int minHouses = currentField.getHouses();
+        int minHouses = currentField.getHousesNumber();
         for (Field field : cities)
-            minHouses = Math.min(field.getHouses(), minHouses);
+            minHouses = Math.min(field.getHousesNumber(), minHouses);
         return minHouses != 4 && city.getHouses() <= minHouses;
     }
 
@@ -83,7 +83,7 @@ public class BuildingsManager{
 
     public void hotelBought() {
         hotelsBought = hotelsBought + 1;
-        game.houseBuyCounter.replace(game.getCurrentPlayer(), hotelsBought);
+        game.hotelBuyCounter.replace(game.getCurrentPlayer(), hotelsBought);
     }
 
     private void reset() {
